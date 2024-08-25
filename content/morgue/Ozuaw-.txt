@@ -1,0 +1,194 @@
+ Dungeon Crawl Stone Soup version 0.31.0 (console) character file.
+
+Game seed: 16090739092746731668
+
+Ozuaw- the Chiller (Draconian Ice Elementalist)     Turns: 1172, Time: 01:11:40
+
+Health: 23/28      AC:  5    Str: 10    XL:     3   Next: 80%
+Magic:  2/6        EV: 12    Int: 17    God:    
+Gold:   82         SH:  0    Dex: 11    Spells: 3/7 levels left
+
+rFire   . . .        e - +0 short sword
+rCold   . . .        (no shield)
+rNeg    . . .        (body armour unavailable)
+rPois   .            (helmet restricted)
+rElec   .            (no cloak)
+rCorr   .            (no gloves)
+SInv    .            (no boots)
+Will    .....        b - amulet of magic regeneration
+Stlth   ++           c - ring of wizardry
+HPRegen 0.24/turn    (no ring)
+MPRegen 0.50/turn
+
+%: wizardry (x1)
+@: no status effects
+A: AC +5, unfitting armour, cold-blooded
+a: no special abilities
+
+
+You are on level 2 of the Dungeon.
+You have visited 1 branch of the dungeon, and seen 2 of its levels.
+
+You have collected 82 gold pieces.
+
+Inventory:
+
+Hand Weapons
+ e - a +0 short sword (weapon)
+Jewellery
+ b - an amulet of magic regeneration (around neck)
+ c - a ring of wizardry (left hand)
+Potions
+ a - a potion of magic
+ h - a sedimented silvery potion
+
+
+   Skills:
+ + Level 1.2 Fighting
+ + Level 2.5 Dodging
+ - Level 1.7 Stealth
+ + Level 2.6 Spellcasting
+ + Level 4.4 Ice Magic
+
+
+You have 3 spell levels left.
+You know the following spells:
+
+ Your Spells              Type           Power      Damage    Failure   Level
+a - Freeze                Ice            68%        1d8       1%          1
+b - Frozen Ramparts       Ice            34%        1d6       3%          3
+
+Your spell library contains the following spells:
+
+ Spells                   Type           Power      Damage    Failure   Level
+ Ozocubu's Armour         Ice            17%        N/A       3%          3
+ Summon Ice Beast         Ice/Summ       9%         N/A       9%          3
+
+
+Dungeon Overview and Level Annotations
+
+Branches:
+Dungeon (2/15)            
+
+Altars:
+
+
+Innate Abilities, Weirdness & Mutations
+
+Your plain brown scales are hard. (AC +5)
+You cannot fit into any form of body armour.
+You are cold-blooded and may be slowed by cold attacks.
+
+Message History
+
+The dart slug launches a dart at you.
+The slug dart hits you.
+Casting: Freeze (safe; 1% risk of failure)
+Confirm with . or Enter, or press ? or * to list all spells.
+Aiming: Freeze (safe; 1% risk of failure)
+Press: ? - help, Shift-Dir - straight line, f/p - dart slug
+Aim: a dart slug (moderately wounded)
+You freeze the dart slug.
+The dart slug is heavily wounded.
+Casting: Freeze (safe; 1% risk of failure)
+Confirm with . or Enter, or press ? or * to list all spells.
+Aiming: Freeze (safe; 1% risk of failure)
+Press: ? - help, Shift-Dir - straight line, f/p - dart slug
+Aim: a dart slug (heavily wounded)
+You freeze the dart slug.
+You kill the dart slug!
+Saving game... please wait.
+Welcome back, Ozuaw- the Draconian Ice Elementalist.
+Press ? for a list of commands and other information.
+Unknown command.
+Saving game... please wait.
+Welcome back, Ozuaw- the Draconian Ice Elementalist.
+Press ? for a list of commands and other information.
+Saving game... please wait.
+Welcome back, Ozuaw- the Draconian Ice Elementalist.
+Press ? for a list of commands and other information.
+Saving game... please wait.
+Welcome back, Ozuaw- the Draconian Ice Elementalist.
+Press ? for a list of commands and other information.
+Saving game... please wait.
+Welcome back, Ozuaw- the Draconian Ice Elementalist.
+Press ? for a list of commands and other information.
+Unknown command.
+Unknown command.
+Unknown command.
+Unknown command.
+Saving game... please wait.
+Welcome back, Ozuaw- the Draconian Ice Elementalist.
+Press ? for a list of commands and other information.
+Saving game... please wait.
+
+  #.#    #.#.#   ##..#...# #
+  #.#  ###.#.#   #.......# #
+###.####.....#   #.#.#...# #
+#.....##.#.###   #.#.##### #
+#.###.##.#.#######.#.#     #
+#.  #....#...>.......#######
+#   #.##.#..######....<.....
+   ...##.#..######.#.#....).
+  ######.>.............#####
+    ####.##.######.........#
+    #.....>@†...##########.#
+    #.##...†###.#
+    #  ####.#
+          #.#
+          ...
+          #.#
+          ...
+          ...
+
+
+There are no monsters in sight!
+
+Vanquished Creatures
+  2 adders (D:2)
+  A dart slug (D:2)
+  3 ball pythons (D:1)
+  6 endoplasms
+  A goblin (D:1)
+  2 hobgoblins
+  8 jackals
+  2 kobolds
+  A quokka (D:2)
+  3 bats
+  A frilled lizard (D:1)
+  4 rats (D:1)
+34 creatures vanquished.
+
+Notes
+Turn   | Place    | Note
+-------+----------+-------------------------------------------
+     0 | D:1      | Ozuaw- the Draconian Ice Elementalist began the quest for
+                  | the Orb.
+     0 | D:1      | Reached XP level 1. HP: 14/14 MP: 3/3
+   365 | D:1      | Reached XP level 2. HP: 20/20 MP: 0/5
+  1014 | D:2      | Reached XP level 3. HP: 27/27 MP: 4/6
+  1018 | D:2      | Learned a level 3 spell: Frozen Ramparts
+  1093 | D:2      | Reached skill level 1 in Fighting
+
+Illustrated notes
+
+Skill      XL: |  1  2  3 |
+---------------+----------+-----
+Dodging        |  2       |  2.5
+Fighting       |        1 |  1.2
+Stealth        |          |  1.7
+Spellcasting   |          |  2.6
+Ice Magic      |          |  4.4
+
+Action                     || total
+---------------------------++-------
+  Melee: Dagger            ||     8
+         Tailslap          ||     1
+         Short sword       ||     1
+   Cast: Freeze            ||    51
+         Frozen Ramparts   ||     2
+    Use: Scroll            ||     4
+   Stab: Sleeping          ||     3
+ Armour: Skin              ||    19
+  Dodge: Dodged            ||    29
+

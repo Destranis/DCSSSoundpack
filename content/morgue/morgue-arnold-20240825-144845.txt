@@ -1,0 +1,408 @@
+ Dungeon Crawl Stone Soup version 0.31.0 (console) character file.
+
+Game seed: 10777462044055000726
+
+10441 arnold the Covert (level 11, 0/87 HPs)
+             Began as a Vine Stalker Brigand on Aug 25, 2024.
+             Was a Follower of Dithmenos.
+             Slain by a gargoyle
+             ... wielding a +0 flail
+              (7 damage)
+             ... on level 10 of the Dungeon.
+             The game lasted 02:52:10 (11051 turns).
+
+arnold the Covert (Vine Stalker Brigand)           Turns: 11051, Time: 02:52:11
+
+Health: 0/87       AC:  9    Str: 14    XL:     11   Next: 62%
+Magic:  0/12       EV: 15    Int: 14    God:    Dithmenos [*.....]
+Gold:   115        SH:  0    Dex: 20    Spells: 10/10 levels left
+
+rFire   + . .        z - +2 dagger (holy)
+rCold   + . .        (no shield)
+rNeg    . . .        B - +1 leather armour {rF+}
+rPois   .            (no helmet)
+rElec   .            c - +1 cloak
+rCorr   +            t - +2 pair of gloves {infuse}
+SInv    .            (no boots)
+Will    +....        (no amulet)
+Stlth                o - ring of resist corrosion
+HPRegen 1.14/turn    h - ring "Potigeja" {Fly rC+ Int+3 Stlth+}
+MPRegen 0.13/turn
+
+%: guardian spirit
+@: berserking, flying, wreathed by umbra, very quick
+A: fangs 3, regeneration 1, magic shield, antimagic bite, no potion heal 2
+a: Renounce Religion
+
+
+You were on level 10 of the Dungeon.
+You worshipped Dithmenos.
+Dithmenos was aware of your devotion.
+You visited 2 branches of the dungeon, and saw 12 of its levels.
+You also visited: Ossuary.
+
+You collected 576 gold pieces.
+You spent 461 gold pieces at shops.
+
+Inventory:
+
+Hand Weapons
+ z - a +2 dagger of holy wrath (weapon)
+Missiles
+ d - 21 poisoned darts (quivered)
+ j - a throwing net
+ v - 9 boomerangs
+Armour
+ c - a +1 cloak (worn)
+ t - a +2 pair of gloves of infusion (worn)
+ B - a +1 leather armour of fire resistance (worn)
+Jewellery
+ h - the ring "Potigeja" (right hand) {Fly rC+ Int+3 Stlth+}
+   (You acquired it on level 5 of the Dungeon)   
+   
+   [ring of flight]
+   
+   Int+3:      It affects your intelligence (+3).
+   rC+:        It protects you from cold.
+   Fly:        It grants you flight.
+   Stlth+:     It makes you more stealthy.
+ o - a ring of resist corrosion (left hand)
+ p - a ring of poison resistance
+Wands
+ k - a wand of light (12)
+ u - a wand of flame (17)
+ y - a wand of digging (2)
+ A - a wand of polymorph (8)
+ C - a wand of paralysis (6)
+Scrolls
+ l - 4 scrolls of teleportation
+ s - 2 scrolls of revelation
+ w - 3 scrolls of blinking
+ x - 2 scrolls of fear
+Potions
+ a - a potion of curing
+ b - 3 potions of cancellation
+ f - 2 potions of magic
+ g - 4 potions of lignification
+ i - 2 potions of haste
+ m - a potion of mutation {unknown}
+ n - a potion of might
+ q - 5 potions of brilliance
+ r - a potion of enlightenment {unknown}
+
+
+   Skills:
+ + Level 7.0 Fighting
+ * Level 9.9 Short Blades
+ - Level 5.2 Throwing
+ + Level 6.1 Dodging
+ + Level 10.6 Stealth
+ + Level 4.2 Evocations
+
+
+You had 10 spell levels left.
+You didn't know any spells.
+Your spell library contained the following spells:
+
+ Spells                   Type           Power      Damage    Failure   Level
+ Apportation              Tloc           0%         N/A       36%         1
+ Jinxbite                 Hex            0%         N/A       50%         2
+ Volatile Blastmotes      Fire/Tloc      0%         2d10      73%         3
+ Anguish                  Hex/Necr       0%         N/A       98%         4
+ Cause Fear               Hex            0%         N/A       98%         4
+ Fulminant Prism          Conj/Alch      0%         3d5       98%         4
+ Iskenderun's Mystic Bla  Conj/Tloc      0%         2d3       98%         4
+ Alistair's Intoxication  Alch           0%         N/A       100%        5
+ Enfeeble                 Hex            0%         N/A       100%        7
+
+
+Dungeon Overview and Level Annotations
+
+Branches:
+Dungeon (11/15)            Temple (1/1) D:6            Lair (0/5) D:8         
+Ossuary (visited)         
+   Orc: D:9-12      
+
+Altars:
+Ashenzari
+Cheibriados
+Dithmenos
+Elyvilon
+Fedhas
+Gozag
+Hepliaklqana
+Kikubaaqudgha
+Nemelex Xobeh
+Okawaru
+Qazlal
+Ru
+Sif Muna
+Trog
+Uskayaw
+Vehumet
+Wu Jian
+Xom
+Yredelemnul
+Zin
+The Shining One
+
+Shops:
+D:3 (   D:10 *
+
+Annotations:
+D:11 exclusion: orange crystal statue
+
+
+Innate Abilities, Weirdness & Mutations
+
+You have razor-sharp teeth.
+Your natural rate of healing is unusually fast.
+When hurt, damage is shared between your health and your magic reserves.
+Your bite disrupts and absorbs the magic of your enemies.
+Potions cannot restore your health.
+
+Message History
+
+The orc wizard casts a spell at you.
+You resist with almost no effort.
+There is a stone staircase leading up, spattered with blood here.
+The cyclops throws a large rock.
+The orc wizard casts a spell at you.
+The magic dart hits you but does no damage.
+The orc closely misses you. The gargoyle hits you with a +0 flail!
+You fly upwards.
+There is a stone staircase leading down here.
+You are too injured to fight recklessly!
+You are too injured to fight recklessly!
+You are too injured to fight recklessly!
+You are too injured to fight recklessly!
+You are too injured to fight recklessly!
+Unknown command.
+You hit the gargoyle.
+You bite the gargoyle, but do no damage.
+The gargoyle is lightly damaged.
+You barely miss the gargoyle. Your bite misses the gargoyle.
+The gargoyle is lightly damaged.
+The gargoyle closely misses you.
+You hit the gargoyle but do no damage.
+You bite the gargoyle, but do no damage.
+The gargoyle is lightly damaged.
+You hit the gargoyle but do no damage.
+You bite the gargoyle, but do no damage.
+The gargoyle is lightly damaged.
+The gargoyle hits you with a +0 flail!
+* * * LOW HITPOINT WARNING * * *
+A red film seems to cover your vision as you go berserk!
+You feel yourself moving faster! You feel mighty!
+The gargoyle hurls a stone arrow at you.
+The stone arrow hits you!!
+* * * LOW HITPOINT WARNING * * *
+You hit the gargoyle but do no damage. You bite the gargoyle! You drain its
+power. You feel invigorated.
+The gargoyle is moderately damaged.
+You hit the gargoyle but do no damage.
+The gargoyle is moderately damaged.
+The gargoyle hits you with a +0 flail!!
+You die...
+
+#######
+......#   ######
+......#   #....#
+......#####....###
+...............[@#
+...............#9#
+...............#.#
+...............#.####
+....................#
+....................#
+....................#
+.................(..#
+.........#..........#
+....#########.....###
+....######..........#
+
+
+You could see a gargoyle.
+
+Vanquished Creatures
+  A two-headed ogre (D:11)
+  A manticore (D:11)
+  A komodo dragon (D:7)
+  3 shadows
+  22 yaks
+  2 steam dragons
+  2 water moccasins
+  3 acid dragons
+  4 orc warriors
+  A sky beast (D:7)
+  2 ice beasts
+  5 black bears
+  6 ogres
+  A centaur (D:9)
+  2 phantoms (D:5)
+  A kobold brigand (D:8)
+  4 bullfrogs
+  4 elf zombies (Ossuary)
+  A scorpion (D:4)
+  A burial acolyte (D:7)
+  9 wights
+  6 killer bees
+  3 centaur zombies (Ossuary)
+  7 howler monkeys
+  4 human zombies (Ossuary)
+  2 lava snakes (D:11)
+  Crazy Yiuf (D:7)
+  A jelly (D:6)
+  3 bombardier beetles
+  2 hounds
+  4 orc priests
+  A sleepcap (D:7)
+  7 iguanas
+  7 orc wizards
+  3 mummies (Ossuary)
+  14 gnolls
+  6 adders
+  A shadow imp (D:4)
+  2 white imps (D:5)
+  2 ufetubi (D:6)
+  An adder zombie (D:7)
+  A dart slug (D:4)
+  2 ribbon worms
+  20 orcs
+  5 ball pythons
+  5 bats
+  7 endoplasms
+  4 giant cockroaches
+  5 goblins
+  6 hobgoblins
+  2 jackals (D:4)
+  8 kobolds
+  4 quokkas
+  4 frilled lizards
+  3 jackal zombies (D:7)
+  5 rats
+234 creatures vanquished.
+
+Vanquished Creatures (others)
+  A yak (D:9)
+  An orc warrior (D:9)
+  A kobold brigand (D:9)
+  An orc wizard (D:11)
+4 creatures vanquished.
+
+Grand Total: 238 creatures vanquished
+
+Notes
+Turn   | Place    | Note
+-------+----------+-------------------------------------------
+     0 | D:1      | arnold the Vine Stalker Brigand began the quest for the
+                  | Orb.
+     0 | D:1      | Reached XP level 1. HP: 11/11 MP: 2/2
+   318 | D:1      | Reached skill level 1 in Dodging
+   318 | D:1      | Reached XP level 2. HP: 15/15 MP: 3/3
+   449 | D:1      | Reached skill level 5 in Stealth
+   939 | D:2      | Reached XP level 3. HP: 18/18 MP: 4/4
+  1780 | D:3      | Reached XP level 4. HP: 21/23 MP: 3/5
+  1945 | D:3      | Reached XP level 5. HP: 23/27 MP: 4/6
+  2230 | D:3      | Found Suono's Weapon Shoppe.
+  2266 | D:3      | Bought 3 poisoned darts for 19 gold pieces
+  2266 | D:3      | Bought 2 poisoned darts for 13 gold pieces
+  2500 | D:3      | Found a radiant altar of Vehumet.
+  2665 | D:3      | Reached XP level 6. HP: 23/32 MP: 7/7
+  2746 | D:3      | Found a glowing silver altar of Zin.
+  3462 | D:4      | Reached skill level 6 in Stealth
+  3593 | D:4      | Found a blossoming altar of Fedhas.
+  3711 | D:5      | Entered Level 5 of the Dungeon
+  3718 | D:5      | Reached XP level 7. HP: 36/36 MP: 8/8
+  4171 | D:4      | Reached skill level 5 in Short Blades
+  4171 | D:4      | Gained mutation: You have razor-sharp teeth. [Vine Stalker
+                  | growth]
+  4171 | D:4      | Reached XP level 8. HP: 42/42 MP: 9/9
+  4219 | D:5      | Found a sand-covered staircase.
+  4225 | Ossuary  | Entered an ossuary
+  4365 | Ossuary  | Reached skill level 7 in Stealth
+  4489 | D:5      | Identified a scroll of acquirement
+  4489 | D:5      | Acquired the ring "Potigeja" {Fly rC+ Int+3 Stlth+}
+  4627 | D:5      | Reached XP level 9. HP: 31/46 MP: 8/10
+  5068 | D:6      | Reached skill level 8 in Stealth
+  5150 | D:6      | Found a snail-covered altar of Cheibriados.
+  5443 | D:6      | Found a staircase to the Ecumenical Temple.
+  5451 | Temple   | Entered the Ecumenical Temple
+  5563 | D:7      | Reached skill level 5 in Fighting
+  5563 | D:7      | Reached skill level 5 in Throwing
+  5777 | D:7      | Identified the +0 chain mail of Lann {rPois Int-3 Stlth+}
+  6024 | D:7      | Found a runed translucent door.
+  6025 | D:7      | Noticed Crazy Yiuf
+  6573 | D:7      | Reached XP level 10. HP: 51/51 MP: 9/11
+  6643 | D:7      | Reached skill level 1 in Evocations
+  6688 | D:7      | Found an ancient bone altar of Kikubaaqudgha.
+  6930 | D:7      | Killed Crazy Yiuf
+  7050 | D:7      | Reached skill level 9 in Stealth
+  7870 | D:8      | Found a staircase to the Lair.
+  7873 | D:8      | Reached skill level 5 in Dodging
+  7902 | D:8      | Found a broken altar of Ashenzari.
+  8259 | D:9      | Found a shimmering altar of Xom.
+  9015 | D:9      | Reached XP level 11. HP: 22/57 MP: 10/12
+  9165 | D:9      | Found a shadowy altar of Dithmenos.
+  9169 | D:9      | Became a worshipper of Dithmenos the Shadowed
+  9322 | D:10     | Entered Level 10 of the Dungeon
+  9439 | D:9      | Reached skill level 10 in Stealth
+  9771 | D:10     | Found Uxiceykh's Assorted Antiques.
+  9779 | D:10     | Bought a runed leather armour for 110 gold pieces
+  9790 | D:10     | Bought a scroll of blinking for 165 gold pieces
+  9790 | D:10     | Bought a scroll of teleportation for 66 gold pieces
+  9790 | D:10     | Bought a scroll of fear for 88 gold pieces
+ 10062 | D:10     | Reached * piety under Dithmenos
+ 10496 | D:11     | Noticed an orange crystal statue
+ 10501 | D:11     | Noticed a manticore
+ 10858 | D:11     | Noticed a two-headed ogre
+ 10864 | D:11     | Killed a two-headed ogre
+ 10928 | D:11     | Noticed a manticore
+ 10941 | D:11     | Killed a manticore
+ 11027 | D:11     | Noticed a cyclops
+ 11051 | D:10     | Slain by a gargoyle
+
+Illustrated notes
+
+Levels and vault maps discovered:
+D:1:      tarquinn_simple_flora_water_d, layout_basic
+D:2:      layout_basic, minmay_misc_feat_more_columns, st_stairs_2
+D:3:      cheibrodos_pilgrimage, layout_basic,
+          mainiacjoe_overflow_six_doors_small, zin_scriptorium, serial_shops,
+          nicolae_shop_bloodbath_and_beyond
+D:4:      layout_cave_pods, fedhas_altar_fruit_tree
+D:5:      layout_rooms, enter_ossuary_2
+D:6:      layout_basic, slow_altar_1, nicolae_overflow_hidden_temple,
+          minmay_temple_entry_enclosed_plants, due_unseen_surprise
+D:7:      layout_basic, lemuel_zombie_altar_kikubaaqudgha,
+          uniq_crazy_yiuf_cottage
+D:8:      layout_cave_pools, mainiacjoe_overflow_alcove_4,
+          grunt_lair_entry_orc_guard_hut, kennysheep_generic_room_14
+D:9:      layout_basic, marbit_many_paths, xom_confusion_cloud
+D:10:     layout_basic, serial_shops, shop, amcnicky_mini_rare_corridor_liquid
+D:11:     layout_small_grid, disabler_island
+Temple:   nicolae_temple_figure_eight
+
+Skill      XL: |  1  2  3  4  5  6  7  8  9 10 11 |
+---------------+----------------------------------+-----
+Short Blades   |  2        3     4  5  6  7  9    |  9.9
+Dodging        |  1              2     3  4  5  6 |  6.1
+Throwing       |     2           3     4  5       |  5.2
+Fighting       |     2           3     4  5  6  7 |  7.0
+Stealth        |     5           6     7  8  9 10 | 10.6
+Evocations     |                             3  4 |  4.2
+
+Action                     |  1- 3 |  4- 6 |  7- 9 | 10-12 || total
+---------------------------+-------+-------+-------+-------++-------
+  Melee: Dagger            |    82 |   122 |   284 |   426 ||   914
+         Bite              |    16 |    37 |   109 |   173 ||   335
+         Punch             |       |       |     5 |     8 ||    13
+  Throw: Dart              |     1 |    18 |    17 |    38 ||    74
+    Use: Scroll            |     3 |     3 |    16 |     4 ||    26
+         Potion            |       |       |     3 |     2 ||     5
+   Stab: Sleeping          |     8 |    10 |    18 |     7 ||    43
+         Distracted        |     1 |     1 |       |     2 ||     4
+ Armour: Robe              |    37 |    49 |       |       ||    86
+         Leather armour    |       |       |   150 |   194 ||   344
+  Dodge: Dodged            |    32 |    65 |   137 |   230 ||   464
+

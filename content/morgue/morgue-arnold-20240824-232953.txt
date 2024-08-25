@@ -1,0 +1,200 @@
+ Dungeon Crawl Stone Soup version 0.31.0 (console) character file.
+
+Game seed: 5568138284001890209
+
+63 arnold the Chopper (level 3, -3/33 HPs)
+             Began as a Minotaur Berserker on Aug 24, 2024.
+             Was a Believer of Trog.
+             Slain by a gnoll
+             ... wielding a +0 spear
+              (8 damage)
+             ... on level 2 of the Dungeon.
+             The game lasted 00:07:28 (1156 turns).
+
+arnold the Chopper (Minotaur Berserker)             Turns: 1156, Time: 00:07:28
+
+Health: -3/33      AC:  2    Str: 21    XL:     3   Next: 87%
+Magic:  2/2        EV: 12    Int:  4    God:    Trog [**....]
+Gold:   55         SH:  0    Dex: 11    Spells: 2/2 levels left
+
+rFire   . . .        a - +0 hand axe
+rCold   . . .        (no shield)
+rNeg    . . .        b - +0 animal skin
+rPois   .            (helmet restricted)
+rElec   .            (no cloak)
+rCorr   .            (no gloves)
+SInv    .            (no boots)
+Will    .....        (no amulet)
+Stlth   +            (no ring)
+HPRegen 0.25/turn    (no ring)
+MPRegen 0.08/turn
+
+%: no passive effects
+@: no status effects
+A: horns 2, retaliatory headbutt
+a: Renounce Religion, Berserk, Trog's Hand
+
+
+You were on level 2 of the Dungeon.
+You worshipped Trog.
+Trog was pleased with you.
+You visited 1 branch of the dungeon, and saw 2 of its levels.
+
+You collected 55 gold pieces.
+
+Inventory:
+
+Hand Weapons
+ a - a +0 hand axe (weapon)
+Armour
+ b - a +0 animal skin (worn)
+Scrolls
+ c - 3 scrolls of identify {unknown}
+ d - a scroll of immolation {unknown}
+ f - a scroll of blinking {unknown}
+ g - a scroll of teleportation {unknown}
+ h - a scroll of torment {unknown}
+ j - a scroll of enchant weapon {unknown}
+Potions
+ e - a potion of attraction {unknown}
+ i - a potion of heal wounds {unknown}
+ k - a potion of magic {unknown}
+
+
+   Skills:
+ + Level 4.2 Fighting
+ + Level 4.2 Axes
+ + Level 3.3 Armour
+ + Level 3.0 Dodging
+
+
+You had 2 spell levels left.
+You didn't know any spells.
+Your spell library was empty.
+
+Dungeon Overview and Level Annotations
+
+Branches:
+Dungeon (2/15)            
+
+Altars:
+
+
+Innate Abilities, Weirdness & Mutations
+
+You have a pair of horns on your head.
+You reflexively headbutt those who attack you in melee.
+
+Message History
+
+You barely miss the goblin. You hit the gnoll but do no damage. The goblin hits
+you with a +0 club.
+The gnoll hits you with a +0 whip! The gnoll barely misses you.
+You hit the gnoll.
+The gnoll is almost dead.
+You hit the gnoll. You closely miss the goblin.
+The gnoll hits you from afar with a +0 spear.
+The goblin barely misses you. The gnoll hits you with a +0 whip! The gnoll
+closely misses you.
+You are too injured to fight recklessly!
+You are too injured to fight recklessly!
+You are too injured to fight recklessly!
+You are too injured to fight recklessly!
+You are too injured to fight recklessly!
+Unknown command.
+You hit the gnoll. You headbutt the gnoll.
+You kill the gnoll!
+Trog accepts your kill.
+You barely miss the gnoll. You closely miss the goblin. The goblin barely
+misses you. You furiously retaliate!
+You headbutt the goblin!
+You kill the goblin!
+Trog accepts your kill.
+The gnoll closely misses you.
+The gnoll hits you from afar with a +0 spear.
+* * * LOW HITPOINT WARNING * * *
+Your Dodging skill increases to level 3!
+Unknown command.
+You barely miss the gnoll.
+The gnoll is almost dead.
+The gnoll barely misses you.
+The gnoll hits you from afar with a +0 spear.
+* * * LOW HITPOINT WARNING * * *
+You barely miss the gnoll. Your headbutt misses the gnoll.
+The gnoll is almost dead.
+The gnoll barely misses you. The gnoll misses you.
+You hit the gnoll.
+You kill the gnoll!
+Trog accepts your kill.
+The gnoll hits you from afar with a +0 spear.
+* * * LOW HITPOINT WARNING * * *
+The gnoll hits you from afar with a +0 spear!
+You die...
+
+                 #    #######
+                .#   ##......
+               #.   ##.......
+            ###.    #........
+     ####   #..     #.......^
+     .....###.#     #........
+        #.g)#)#######.....>..
+          #)@...†.....†......
+          #...####...........
+..     ............###.......
+..#    ##.###########........
+#..#####..  #########........
+.........   ...........†.....
+......#.#   #########........
+  ......#         ##.....<...
+   #.#†.#         #..#†......
+   #....##        #.###......
+   ###...####   ###.# #######
+
+
+You could see a gnoll.
+
+Vanquished Creatures
+  2 gnolls (D:2)
+  An adder (D:2)
+  3 endoplasms
+  A giant cockroach (D:2)
+  7 goblins
+  5 hobgoblins
+  3 quokkas
+  5 ball pythons
+  6 bats
+  2 frilled lizards
+  3 kobolds (D:1)
+  4 rats
+42 creatures vanquished.
+
+Notes
+Turn   | Place    | Note
+-------+----------+-------------------------------------------
+     0 | D:1      | arnold the Minotaur Berserker began the quest for the Orb.
+     0 | D:1      | Reached XP level 1. HP: 19/19 MP: 0/0
+   215 | D:1      | Reached XP level 2. HP: 22/27 MP: 1/1
+   453 | D:1      | Reached ** piety under Trog
+   607 | D:1      | Reached XP level 3. HP: 33/33 MP: 2/2
+  1156 | D:2      | Slain by a gnoll
+
+Illustrated notes
+
+Levels and vault maps discovered:
+D:1:      sevenhm_arrival_forest_fort_large_2, layout_basic
+D:2:      layout_rooms
+
+Skill      XL: |  1  2  3 |
+---------------+----------+-----
+Axes           |     4    |  4.2
+Fighting       |     4    |  4.2
+Armour         |     3    |  3.3
+Dodging        |        3 |  3.0
+
+Action                     || total
+---------------------------++-------
+  Melee: Hand axe          ||    94
+         Headbutt          ||    12
+ Armour: Animal skin       ||    65
+  Dodge: Dodged            ||    63
+
