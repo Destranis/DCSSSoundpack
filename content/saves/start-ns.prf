@@ -1,8 +1,0 @@
-type = normal
-name = Qyits
-species = viable
-background = viable
-weapon = claws
-fully_random = yes
-default_manual_training = yes
-quiver_menu_focus = false
