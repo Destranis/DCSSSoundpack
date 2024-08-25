@@ -1,0 +1,109 @@
+ Dungeon Crawl Stone Soup version 0.31.0 (console) character file.
+
+Game seed: 4583136962401942104
+
+Vyschyrgh the Conjurer (Draconian Conjurer)            Turns: 0, Time: 00:00:07
+
+Health: 14/14      AC:  4    Str:  9    XL:     1   Next: 0%
+Magic:  3/3        EV: 12    Int: 18    God:    
+Gold:   0          SH:  0    Dex:  9    Spells: 3/4 levels left
+
+rFire   . . .        (no weapon)
+rCold   . . .        (no shield)
+rNeg    . . .        (body armour unavailable)
+rPois   .            (helmet restricted)
+rElec   .            (no cloak)
+rCorr   .            (no gloves)
+SInv    .            (no boots)
+Will    .....        (no amulet)
+Stlth   ++           (no ring)
+HPRegen 0.22/turn    (no ring)
+MPRegen 0.08/turn
+
+%: no passive effects
+@: no status effects
+A: AC +4, unfitting armour, cold-blooded
+a: no special abilities
+
+
+You are on level 1 of the Dungeon.
+You have visited 1 branch of the dungeon, and seen 1 of its levels.
+
+Inventory:
+
+Potions
+ a - a potion of magic
+
+
+   Skills:
+ + Level 1.7 Dodging
+ + Level 1.7 Stealth
+ + Level 2.0 Spellcasting
+ + Level 4.0 Conjurations
+
+
+You have 3 spell levels left.
+You know the following spells:
+
+ Your Spells              Type           Power      Damage    Failure   Level
+a - Magic Dart            Conj           64%        1d6       3%          1
+
+Your spell library contains the following spells:
+
+ Spells                   Type           Power      Damage    Failure   Level
+ Searing Ray              Conj           32%        2d5       5%          2
+ Fulminant Prism          Conj/Alch      4%         3d5       61%         4
+ Iskenderun's Mystic Bla  Conj/Tloc      9%         2d4       61%         4
+
+
+Dungeon Overview and Level Annotations
+
+Branches:
+Dungeon (1/15)            
+
+Altars:
+
+
+Innate Abilities, Weirdness & Mutations
+
+Your plain brown scales are hard. (AC +4)
+You cannot fit into any form of body armour.
+You are cold-blooded and may be slowed by cold attacks.
+
+Message History
+
+Welcome, Vyschyrgh the Draconian Conjurer.
+Will you be the one to retrieve the transcendent Orb of Zot from the depths?
+Press ? for a list of commands and other information.
+Found a staircase leading out of the dungeon.
+Saving game... please wait.
+
+ .   #.
+  .  #.
+  #. #.
+ ##.##.
+  ...#.
+    ... ##
+     #.#.#
+     #.@#
+.......##
+.###...
+  #....
+ ......
+##.....
+ ##....
+  #....
+
+
+There are no monsters in sight!
+
+
+Notes
+Turn   | Place    | Note
+-------+----------+-------------------------------------------
+     0 | D:1      | Vyschyrgh the Draconian Conjurer began the quest for the
+                  | Orb.
+     0 | D:1      | Reached XP level 1. HP: 14/14 MP: 3/3
+
+Illustrated notes
+
