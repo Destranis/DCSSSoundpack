@@ -134,11 +134,11 @@ Goad Beasts cast
 %%%%
 Call Down Lightning cast
 
-Electricity crackles from @the_monster@'s apparatus.
+Electricity crackles from @the_monster_possessive@ apparatus.
 %%%%
 Blink Range ironbound thunderhulk cast
 
-Strange energies crackle from @the_monster@'s apparatus.
+Strange energies crackle from @the_monster_possessive@ apparatus.
 %%%%
 Mara Summon cast
 
@@ -194,10 +194,6 @@ Call Lost Souls cast
 
 @The_monster@ beckons forth restless souls!
 %%%%
-Haste Plants cast
-
-@The_monster@ empowers the plants around itself!
-%%%%
 Major Destruction cast
 
 @The_monster@ conjures a destructive force in the name of @possessive_God@!
@@ -207,6 +203,10 @@ Sheza's Dance cast
 @The_monster@ sends weapons flying into battle!
 
 @The_monster@ gestures, and weapons take to the air!
+%%%%
+Divine Armament cast
+
+@The_monster@ beseeches @My_God@ to grant them a weapon.
 %%%%
 Druid's Call cast
 
@@ -226,7 +226,7 @@ Pyroclastic Surge cast
 %%%%
 Eruption cast
 
-@The_monster@ rends the earth beneath you!
+@The_monster@ rends the earth beneath @target@!
 %%%%
 Call of Chaos cast
 
@@ -415,6 +415,16 @@ Weakening Gaze cast
 # Unique monsters
 ########################################################################
 %%%%
+Ensnare Arachne cast
+
+@The_monster@ points @possessive@ staff @at@ @target@, shooting a stream of webbing.
+
+@The_monster_possessive@ staff shoots out a stream of webbing.
+%%%%
+unseen Ensnare Arachne cast
+
+A stream of webbing shoots out from thin air.
+%%%%
 March of Sorrows Boris cast
 
 @The_monster@ [casts|pitches] forth @possessive@ victims' sorrows.
@@ -463,7 +473,7 @@ VISUAL:@The_monster@ glows a brilliant shade of cerise.
 
 VISUAL:@The_monster@ wobbles crazily.
 
-VISUAL:@The_monster@'s eyestalks stretch out, then return to normal size.
+VISUAL:@The_monster_possessive@ eyestalks stretch out, then return to normal size.
 
 You wobble.
 
@@ -486,7 +496,7 @@ Gastronok cast targeted
 %%%%
 Gastronok cast
 
-@The_monster@'s eyestalks quiver as @subjective@ mumbles some strange words.
+@The_monster_possessive@ eyestalks quiver as @subjective@ mumbles some strange words.
 
 @The_monster@ chants a spell, wobbling all the while.
 
@@ -501,6 +511,36 @@ Geryon cast
 unseen Geryon cast
 
 You hear a weird and mournful sound.
+%%%%
+Smiting Jeremiah cast
+
+@The_monster@ lets out a twisted cry.
+
+@The_monster@ mumbles a slurred invocation.
+
+VISUAL:@The_monster@ throws @possessive@ arms up pleadingly.
+
+@The_monster@ cries, "Fearful master, protect me!"
+
+@The_monster@ shouts, "O dreadful one, destroy my foe!"
+%%%%
+Mennas cast
+
+VISUAL:@The_monster@ gestures frantically.
+%%%%
+Primal Wave Norris cast
+
+@The_monster@ invokes the aid of something beyond life against @target@.
+
+@The_monster@ calmly calls forth the wrath of something past death upon @target@.
+
+@The_monster@ prays to the universe for peace to reach @target@.
+%%%%
+Draining Gaze Norris cast
+
+Something numinous underneath @the_monster_possessive@ waves suddenly gazes at @target@.
+
+@The_monster_possessive@ eyes shimmer, overwhelming @target@ with visions from beyond.
 %%%%
 # Roxanne can't gesture or point either.
 Roxanne cast
@@ -521,29 +561,9 @@ Rupert cast targeted
 
 @The_monster@ yells loudly @at@ @target@.
 %%%%
-Ensnare Arachne cast
-
-@The_monster@ points @possessive@ staff @at@ @target@, shooting a stream of webbing.
-
-@The_monster@'s staff shoots out a stream of webbing.
-%%%%
-unseen Ensnare Arachne cast
-
-A stream of webbing shoots out from thin air.
-%%%%
 Lehudib's Crystal Spear the Serpent of Hell cast
 
 @The_monster@ spits crystal @at@ @target@.
-%%%%
-Mennas cast
-
-VISUAL:@The_monster@ gestures frantically.
-%%%%
-Paralyse Xtahua cast
-
-@The_monster@ roars overwhelmingly @at@ @target@!
-
-@The_monster@ thunders ferociously @at@ @target@!
 %%%%
 Vv cast
 
@@ -560,26 +580,28 @@ unseen Vv cast
 
 You hear the sound of rock striking rock.
 %%%%
-Smiting Jeremiah cast
+Paralyse Xtahua cast
 
-@The_monster@ lets out a twisted cry.
+@The_monster@ roars overwhelmingly @at@ @target@!
 
-@The_monster@ mumbles a slurred invocation.
+@The_monster@ thunders ferociously @at@ @target@!
+%%%%
+Hellfire Mortar Wiglaf cast
 
-VISUAL:@The_monster@ throws @possessive@ arms up pleadingly.
+VISUAL:@The_monster@ slams @possessive@ weapon against the ground.
 
-@The_monster@ cries, "Fearful master, protect me!"
+@The_monster@ shouts @at@ @foe@, "Taste the blood o the mountain!"
 
-@The_monster@ shouts, "O dreadful one, destroy my foe!"
+@The_monster@ roars @at@ @foe@, "Let me show ye whit a REAL cannon looks like!"
 %%%%
 ########################################################################
 # Individual monsters
 ########################################################################
 brain worm cast
 
-@The_monster@'s bulging head throbs.
+@The_monster_possessive@ bulging head throbs.
 
-@The_monster@'s throbbing head pulsates.
+@The_monster_possessive@ throbbing head pulsates.
 %%%%
 glowing orange brain cast
 
@@ -625,7 +647,7 @@ orb of fire cast
 %%%%
 obsidian statue cast
 
-@The_monster@'s eyes glow briefly.
+@The_monster_possessive@ eyes glow briefly.
 %%%%
 # Sphinxes can't gesture or point.
 sphinx cast
@@ -698,9 +720,25 @@ Splinterspray cast
 
 @The_monster@ hurls a spray of @beam@ @at@ @target@.
 %%%%
-Crystal Bolt crystal guardian cast
+Crystallizing Shot crystal guardian cast
 
-@The_monster@ fires a crystalline bolt @at@ @target@.
+@The_monster@ fires a shard of @reflexive@ @at@ @target@.
+%%%%
+Rebounding Blaze thermic dynamo cast
+
+A wild whirl of fire shoots out from @the_monster@ @at@ @target@.
+
+@The_monster@ overcharges @reflexive@ and releases excess heat @at@ @target@.
+%%%%
+Rebounding Chill thermic dynamo cast
+
+A wild whirl of ice shoots out from @the_monster@ @at@ @target@.
+
+@The_monster@ overflows with ice and vents excess cold @at@ @target@.
+%%%%
+unseen thermic dynamo cast
+
+You hear a violent whirl.
 %%%%
 Blink Other statue cast
 
@@ -722,9 +760,13 @@ Summon Water Elementals elemental wellspring cast
 
 Water spirits pour forth from @the_monster@!
 %%%%
-Invisibility shadow cast
+Invisibility shadowghast cast
 
 @The_monster@ slips into darkness.
+%%%%
+scrub nettle cast targeted
+
+@The_monster@ launches toxic spines @at@ @target@.
 %%%%
 ghost moth cast targeted
 
@@ -746,11 +788,11 @@ weeping skull cast
 
 @The_monster@ [unleashes|releases] gushing sobs.
 
-@The_monster@'s misery [bubbles over|overflows].
+@The_monster_possessive@ misery [bubbles over|overflows].
 %%%%
 silent weeping skull cast
 
-@The_monster@'s misery [bubbles over|overflows].
+@The_monster_possessive@ misery [bubbles over|overflows].
 %%%%
 unseen weeping skull cast
 
@@ -762,7 +804,7 @@ laughing skull cast
 
 @The_monster@ gibbers with scorn.
 
-@The_monster@ lets out a vicious peal of laugher.
+@The_monster@ lets out a vicious peal of laughter.
 %%%%
 silent laughing skull cast
 
@@ -884,6 +926,29 @@ burial acolyte cast
 
 @The_monster@ [drones|recites] a funeral chant.
 %%%%
+vhi's electrolunge cast
+
+@The_monster@ charges forward with an electric crackle.
+%%%%
+sticks to snakes cast
+
+@The_monster@ drops twin branches and they both wriggle to life!
+%%%%
+Vanquished Vanguard Nergalle cast
+
+@The_monster@ calls out: "@orc name@, @orc name@, @orc name@ - to me!"
+
+@The_monster@ cries out, "Spectres! Fight for the home you helped make!"
+
+%%%%
+force lance polterguardian cast
+
+@The_monster@ focuses its will @at@ @target@.
+%%%%
+flashing balestra undying armoury cast
+
+A weapon leaps out from @the_monster@ and lunges @at@ @target@!
+%%%%
 ########################################################################
 # Monster species and genus messages.
 ########################################################################
@@ -973,7 +1038,7 @@ Corrupting Pulse wretched star cast
 %%%%
 living spell cast
 
-@The_monster@ casts itself @at@ @target@.
+@The_monster@ casts @reflexive@ @at@ @target@.
 %%%%
 bombardier beetle cast
 
@@ -981,7 +1046,20 @@ bombardier beetle cast
 %%%%
 sun moth cast
 
-@The_monster@'s wings beat fiercely.
+@The_monster_possessive@ wings beat fiercely.
+%%%%
+Hoarfrost Bullet cast finale
+
+@The_monster@ launches the last of @reflexive@ @at@ @target@ with a shrill rumble.
+%%%%
+Hoarfrost Bullet cast
+
+@The_monster@ fires a salvo of icy shards.
+%%%%
+Hellfire mortar cast
+
+@The_monster@ blasts a torrent of magma @at@ @target@.
+%%%%
 ###########################################################################
 # Generic messages for priests and wizards which have been polymorphed into
 # something without hands.

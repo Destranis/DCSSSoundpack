@@ -861,18 +861,17 @@ ENDMAP
 #
 NAME:   overgrown_hall
 WEIGHT: 2
-MONS:   plant, fungus
+MONS:   plant, fungus, pile of debris
 MONS:   cyclops / stone giant w:2
-SUBST:  x = x:20 .
-SUBST:  G = G:40 .
+SUBST:  x = xx., G = GG33.
 SUBST:  . = .:90 1:19 x:1
-SUBST:  1 = 1 2:1
+SUBST:  1 = 1 2:1, ' = .
 MAP
 xxxxxxxxxxx
 x.........x
-x.G.G.G.G.x
-+....3....+
-x.G.G.G.G.x
+x.G'G.G'G.x
++''.'4'.'.+
+x.G'G.G'G.x
 x.........x
 xxxxxxxxxxx
 ENDMAP
@@ -986,9 +985,10 @@ TAGS:    no_pool_fixup
 MONS:    cyclops, frost giant, stone giant
 KMONS:   P = plant
 KMONS:   f = fungus
+KMONS:   D = pile of debris
 KFEAT:   Pfp = shallow_water
-KFEAT:   5 = deep_water
-SUBST:   p = ppWw, p = Pf, y = xxxxcccPPPfw, f = PPwW, x = x:10 c:1
+KFEAT:   D5 = deep_water
+SUBST:   p = ppWw, p = Pf, y = xxxcccPPfDDw, f = PPwW, x = x:10 c:1
 SHUFFLE: 23
 SUBST:   2 = 2:15 1:10, 3 = 3:15 1:10
 MAP
@@ -1050,13 +1050,15 @@ KMONS:   6 = cyclops
 KMONS:   7 = stone giant
 KMONS:   8 = frost giant
 KMONS:   9 = titan
-KFEAT:   123456789 = deep_water
-KITEM:   | = |
-KITEM:   * = *
+KMONS:   D = pile of debris
+KFEAT:   123456789D = deep_water
+KITEM:   | = $, *, |
+KITEM:   * = $, %, *
 KFEAT:   |* = shallow_water
 SHUFFLE: 12345 / 86769
 NSUBST:  Z = 1:w / *:c
-SUBST:   G = GGGwwW, 7 = 667, 8 = 688, 9 = 7899, x = c
+SUBST:   G = GGDwwW, 7 = 667, 8 = 688, 9 = 7899, x = c
+KPROP:   |* = no_tele_into
 MAP
    xxxxxxxxxxx
   xxGxGxGxGxGxx
@@ -1182,7 +1184,7 @@ KMONS:  c = patrolling wraith
 NSUBST: f = 1:g / 2:f / *:.
 KITEM:  g = gold
 KITEM:  f = gold / nothing w:10
-: dgn.delayed_decay(_G, 'c', 'human skeleton')
+KITEM:  c = human skeleton
 SUBST:  Z = yY
 KFEAT:  y = w
 KFEAT:  Y = W
@@ -1343,23 +1345,26 @@ xxr----WWmwW--rx
      xxxxxxxx
 ENDMAP
 
-NAME:  wheals_shoals_ruined_temple
-TAGS:  water_ok
-DEPTH: Shoals, !Shoals:$
-KPROP: c.GWuw1 = no_tide
-KMONS: 1 = kraken
-KFEAT: 1 = w
-SUBST: u = Ww
-SUBST: . = .:500 0
+NAME:   wheals_shoals_ruined_temple
+TAGS:   water_ok
+DEPTH:  Shoals, !Shoals:$
+KPROP:  c.GWuw1 = no_tide
+KMONS:  D = pile of debris
+KMONS:  1 = kraken
+KFEAT:  1D = w
+SUBST:  u = Ww, . = .:500 0
+TILE:   G = dngn_statue_centaur w:5 / dngn_statue_maw / dngn_statue_mermaid / \
+            dngn_statue_orb w:5 / dngn_statue_princess / \
+            dngn_statue_polearm / dngn_statue_tentacles
 MAP
 ccccccccccccccccccccccccccccccccc
+c...c................$WWWWWWuwwwc
+@.c...c..G....G...G...DWWWWWuwwwc
 c...c.................WWWWWWuwwwc
-@.c...c..G....G...G...GWWWWWuwwwc
+@.c...c..G....G...G...DWWCWWuw1wc
 c...c.................WWWWWWuwwwc
-@.c...c..G....G...G...GWWCWWuw1wc
-c...c.................WWWWWWuwwwc
-@.c...c..G....G...G...GWWWWWuwwwc
-c...c.................WWWWWWuwwwc
+@.c...c..G....G...G...DWWWWWuwwwc
+c...c................$WWWWWWuwwwc
 ccccccccccccccccccccccccccccccccc
 ENDMAP
 
@@ -1934,8 +1939,8 @@ ITEM:   scroll of revelation / any scroll
 MONS:   shadow wraith
 NSUBST: ' = d / e / f / g / h / 1 / z / } / .
 SUBST:  } = }]), - = x_, x = x:70 c
-CLEAR: _
-: dgn.delayed_decay( _G, "z", "human skeleton" )
+CLEAR:  _
+KITEM:  z = human skeleton
 MAP
   -xx-
  -xxxx-
@@ -1971,7 +1976,7 @@ NSUBST: . = Q / *=% M:30 .:150, ' = Q / '
 MARKER: L = lua:fog_machine { cloud_type = "flame", pow_min = 10, \
             pow_max = 10, delay = 10, size = 1, walk_dist = 0, \
             start_clouds = 1, excl_rad = 0 }
-: dgn.delayed_decay( _G, "Q", "human skeleton" )
+KITEM:  Q = human skeleton
 MAP
 ~~~~~~~~~~~~~~~~~~~~~~~
 ~wwwwwwwwwwwwwwwwwwwwww
@@ -2027,7 +2032,7 @@ kfeat("F = general shop name:" .. owner .. " type:Merfolk suffix:Magic ; \
 -- will be more than happy to help make arrangements. With an additional
 -- convenience fee, of course. (The scroll is for if you get stuck.)
 kfeat("J = general shop name:" .. owner .. " type:Visitors' suffix:Centre \
-      greed:100 count:2 use_all ; potion of enlightenment q:1 | \
+      greed:20 count:2 use_all ; potion of enlightenment q:1 | \
       scroll of teleportation q:1" )
 }}
 KFEAT:   ~ = open_sea
@@ -2092,28 +2097,30 @@ DDDD       DDDDE.132...EDDD
                  DDDDD
 ENDMAP
 
-NAME:  nicolae_shoals_raging_river
-TAGS:  transparent no_tide patrolling
-KMONS: 1 = water elemental
-KMONS: 2 = elemental wellspring
-KITEM: L = * w:20 / |
-KFEAT: L = W / .
-KFEAT: 12 = w
-SUBST: M = Wx, w = W x 1:5 2:5 w:70, W = . W:70, ~ = w:90 1
-SUBST: ' = L', x = x:60 c
+NAME:   nicolae_shoals_raging_river
+TAGS:   transparent no_tide patrolling
+KMONS:  1 = water elemental
+KMONS:  2 = elemental wellspring
+KMONS:  D = pile of debris
+KITEM:  L = * w:20 / |
+KFEAT:  L = W / .
+KFEAT:  123 = w
+NSUBST: w = 1:2.. / 3:1 / 10 = W x w:70 / * = 1:5 W x w:70
+SUBST:  M = Wx, W = . W:70, ~ = w:90 1
+SUBST:  ' = L', x = x:60 c
 MAP
  xxxxxxxx xxxxxx
 xxccccccxxxMMMMxxx
 xccLW2wccxMWWWWWMxxx
-xcL''WWwcxWW~~~WWWMxx
+xcL''WWwcxWW1~~WWWMxx
 xc'...WwcxWwwWW~~WWMx
 xc'...WwcxWwWxxW~~WMx
 xcc..Ww2cxWwwWxWW~WMx
 xxccWwWccxxWwWxxW~WMx
- xxxWwWxxxWwwWxxW~WMx
+ xxxWDWxxxWwwWxxW~WMx
   xMWwWxxxWwWxxMW~Wxx
- xxWwwWxxxWwWxxW~WWx
-xxWwwWxxxWwwWxMW~W..
+ xxWwDWxxxWwWxxW~WWx
+xxWDwWxxxWwwWxMW~W..
 xWwwWxxxWwwWxxWW~W.@
 xWwWxxxWwwWxxxW~WW..
 xWwWxxxWwWMxxxx~xxxx
@@ -2311,12 +2318,10 @@ MARKER:  P = lua:transp_loc("davey_jones_entry")
 MARKER:  Q = lua:transp_dest_loc("davey_jones_entry")
 MARKER:  R = lua:transp_loc("davey_jones_exit")
 MARKER:  S = lua:transp_dest_loc("davey_jones_exit")
-{{
-dgn.delayed_decay(_G, "-", "minotaur skeleton / elf skeleton" ..
-  " / dwarf skeleton / human skeleton / kobold skeleton" ..
-  " / felid skeleton / orc skeleton / ogre skeleton")
-ghost_setup(_G)
-}}
+KITEM:   - = minotaur skeleton / elf skeleton / dwarf skeleton /\
+             human skeleton / kobold skeleton / felid skeleton /\
+             orc skeleton / ogre skeleton
+: ghost_setup(_G)
 MAP
  WWssssSssssWW
 WWcccccccccccWW
@@ -2989,11 +2994,13 @@ MONS:    w:15 merfolk impaler ; trident ego:flaming good_item |\
 MONS:    cherub
 KMONS:   H = angel / daeva w:3
 KMONS:   P = plant
+KMONS:   s = sacred lotus
 KITEM:   H = barnacled rune of Zot
 KITEM:   h = azure gem
 KFEAT:   D = altar_zin
 KFEAT:   E = altar_elyvilon
 KFEAT:   F = altar_the_shining_one
+KFEAT:   s = w
 SHUFFLE: Hh / Ii / Jj, DEF
 SUBST:   IJ = |, ij = .
 NSUBST:  < = 1:( / 1:[ / 1:{ / *: <''
@@ -3030,7 +3037,7 @@ wwwwwwwwwwwww---_'''''''''''''''''''''''_---wwwwwwwwwwwww
 wwwwwwwwwwwww---_'''''''''''''''''''''''_---wwwwwwwwwwwww
 wwwwwwwwwwwww---_'''''''''''''''''''''''_----wwwwwwwwwwww
 wwwwwwwwwwwwww--__'''''''''''''''''''''__--wwwwwwwwwwwwww
-wwwwwwwwwwwwwww--___'''''''~~~''''''___--wwwwwwwwwwwwwwww
+wwwwwwwwwwwwsww--___'''''''~~~''''''___--wwwswwwwwwwwwwww
 wwwwwwwwwwwwwwwww--___'cc''~<~''cc'__--wwwwwwwwwwwwwwwwww
 wwwwwwwwwwww-wwwwww--___cc'~~~'cc__--wwwwww---wwwwwwwwwww
 wwwwwwwwwww----wwwwww--__ccccccc_--wwwwww-----wwwwwwwwwww
@@ -3057,7 +3064,7 @@ wwwwwwww-c3.000.3c_______-www-_________c3.000.3c-wwwwwwww
 wwwwwwww-cc|3i3|cc___-----www-------___cc|3j3|cc-wwwwwwww
 wwwwwwwww-cccIccc---------www-----------cccJccc-wwwwwwwww
 wwwwwwwwww--ccc----------www--------------ccc--wwwwwwwwww
-wwwwwwwwwww--------------www------------------wwwwwwwwwww
+wwwwwwwwwww--------------wsw------------------wwwwwwwwwww
 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
@@ -3081,6 +3088,8 @@ SUBVAULT: E : storm_palace_corner
 SUBVAULT: F : storm_palace_corner
 SUBVAULT: H : storm_palace_corner
 SUBVAULT: J : storm_palace_corner
+TILE:     G = dngn_statue_mermaid w:25 / dngn_statue_polearm / \
+              dngn_statue_dragon / dngn_statue_maw
 MAP
 cccccccccccccccccccccccccccccccccccccccccccccccc
 cccccccccccccccccccccccccccccccccccccccccccccccc
@@ -3209,6 +3218,8 @@ KITEM:  O = barnacled rune of Zot
 KITEM:  R = |, azure gem
 NSUBST: | = 1:O / 1:R / *:|, 1 = 4 = 8. / * = 1..
 SUBST:  p : W., q: W., . = W..., c = cc.
+TILE:   G = dngn_statue_mermaid w:25 / dngn_statue_polearm / \
+            dngn_statue_dragon / dngn_statue_maw
 MAP
 c....................c
 1.cccccccccccccccccc.1
@@ -3237,6 +3248,7 @@ ENDMAP
 NAME:   storm_palace_corner_pillars
 TAGS:   storm_palace_corner allow_dup no_pool_fixup
 SUBST:  ; = AGG..., W : wWW
+TILE:   G = dngn_statue_mermaid w:25 / dngn_statue_maw / dngn_statue_dragon
 MAP
 ...........
 .WWWW;WWWW.
@@ -3272,6 +3284,8 @@ ENDMAP
 NAME:   storm_palace_corner_grid
 TAGS:   storm_palace_corner allow_dup
 SUBST:  . = WW., c = cc., c : ccbG
+TILE:   G = dngn_statue_mermaid w:25 / dngn_statue_polearm / \
+            dngn_statue_dragon / dngn_statue_maw
 MAP
 ...........
 .c.c.c.c.c.
@@ -3288,14 +3302,18 @@ ENDMAP
 
 NAME:   storm_palace_corner_altar
 TAGS:   storm_palace_corner allow_dup no_pool_fixup
+KMONS:  S = sacred lotus
 KFEAT:  _ = altar_qazlal / altar_fedhas w:5
-SUBST:  _ = __C, t : ttG
+KFEAT:  S = W
+SUBST:  _ = __C, t : ttG, S : SW
+TILE:   G = dngn_statue_mermaid w:25 / dngn_statue_polearm / \
+            dngn_statue_dragon / dngn_statue_maw
 MAP
 cccccccW...
 cccccccW...
-ccccWWWW...
+ccccSWWW...
 ccccW......
-ccWWW......
+ccSWW......
 ccW.. ..t..
 ccW........
 WWW....WWW.
@@ -3307,6 +3325,8 @@ ENDMAP
 NAME:   storm_palace_corner_narrow
 TAGS:   storm_palace_corner allow_dup no_pool_fixup
 SUBST:  . = W.., ; : wWW., + : ++.
+TILE:   G = dngn_statue_mermaid w:25 / dngn_statue_polearm / \
+            dngn_statue_dragon / dngn_statue_maw
 MAP
 G.........+
 .W........+
@@ -3321,11 +3341,13 @@ G.........+
 ++cccccccc
 ENDMAP
 
-#don't allow_dup this one to avoid disconnects
+# don't allow_dup this one to avoid disconnects
 NAME:   storm_palace_corner_blocked
 TAGS:   storm_palace_corner no_pool_fixup
 KMONS:  P = plant
 SUBST:  . = P......., G = GG., W : wW
+TILE:   G = dngn_statue_mermaid w:25 / dngn_statue_polearm / \
+            dngn_statue_dragon / dngn_statue_maw
 MAP
 WWWW.......
 WWW........

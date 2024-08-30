@@ -10,12 +10,14 @@
             e.kmons('2 = nonbase draconian / base draconian w:20')
             e.kmons('3 = draconian stormcaller / draconian monk w:2')
         else
-            e.kmons('1 = tengu warrior / tengu conjurer / '
-                    .. 'glowing orange brain / spriggan berserker w:5 / '
-                    .. 'spriggan air mage w:5 / deep elf demonologist w:5 / '
-                    .. 'nothing w:68')
-            e.kmons('2 = spriggan berserker / tengu warrior w:20')
-            e.kmons('3 = deep elf high priest')
+            e.kmons('1 = tengu warrior w:5 / tengu conjurer w:5 / ' ..
+                        'glowing orange brain / flayed ghost w:5 / ' ..
+                        'rakshasa / spriggan rider w:5 / ' ..
+                        'spriggan air mage w:5 / ' ..
+                        'nothing w:68')
+            e.kmons('2 = spriggan berserker / deep elf demonologist / ' ..
+                        'sphinx w:5')
+            e.kmons('3 = deep elf high priest / walking divine tome w:5')
         end
         e.subst('% = * %:20 .')
         e.lua_marker(':', fog_machine { cloud_type = "flame",
@@ -32,7 +34,7 @@
         e.mons("w:20 obsidian statue / w:1 orange crystal statue")
         e.mons("glowing shapeshifter")
         e.mons("very ugly thing / ugly thing w:5")
-        e.mons("ball lightning")
+        e.mons("thermic dynamo")
         e.mons("crystal guardian")
         e.kmons("8 = dancing weapon")
         e.kmons("9 = war gargoyle")
@@ -41,7 +43,6 @@
         e.kmons("e = earth elemental")
         e.kmons("f = fire elemental")
         e.kmons("a = air elemental")
-        e.kmons("o = iron golem")
         e.kmons("r = war gargoyle / molten gargoyle / nothing w:20")
         e.kmons("t = glowing orange brain / wind drake w:5")
         e.kfeat("A = stone_arch")
@@ -64,12 +65,12 @@
         e.subst("s = ..$*p|")
         e.subst("u = ..$||")
         e.subst("3 = 3.")
-        e.subst("5 = 5 .:4")
+        e.subst("5 = 5 .:6")
         e.subst("g = E:30 3 .:30")
         e.subst("h = a:30 3 .:30")
         e.subst("K = r:20 f e:40 .:70")
         e.subst("iL = e.")
-        e.subst("jM = 79 o:1 .:21")
+        e.subst("jM = 79 .:21")
         e.subst("m = 4:15 .:25")
         e.subst("N = ef..")
         e.subst("n = 0 8:5 .:25")
@@ -83,7 +84,7 @@
         e.tile("G = depths_column")
         e.lfloortile("floor_depthstone")
         e.set_random_mon_list(
-            "glowing shapeshifter w:100 / air elemental / water elemental / " ..
+            "glowing shapeshifter w:100 / air elemental / thermic dynamo / " ..
             "earth elemental / crystal guardian / molten gargoyle / " ..
             "war gargoyle / dancing weapon / very ugly thing band")
     end
@@ -256,7 +257,9 @@ KFEAT:   Du = >
 KFEAT:   H = w
 MARKER:  O = lua:props_marker { portal=1 }
 TILE:    G = depths_crumbled_column
+TILE:    b = bedevilled_crystal_tartarus
 LFLOORTILE: floor_depthstone
+: set_feature_name("crystal_wall", "bedevilled crystal wall")
 MAP
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxccccccccccccxxxxxx
@@ -446,6 +449,8 @@ TILE:     G = dngn_statue_imp / dngn_statue_dragon / dngn_statue_maw / \
               dngn_statue_demonic_bust / dngn_statue_tentacles / \
               dngn_statue_wraith / dngn_statue_sigmund
 TILE:     C = depths_column
+: set_feature_name("crystal_wall", "bedevilled crystal wall")
+: set_feature_name("metal_statue", "iron statue")
 LFLOORTILE: floor_depthstone
 MAP
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
@@ -476,7 +481,7 @@ ccccccccG....Gcccc...9...c+.........ccccccc.........+c...9...ccccG....Gcccccccc
 ccccccccc....cccc.......cc........1....:....1........cc.......cccc....ccccccccc
 cccccccccc++ccccc......cc..............1..............cc......ccccc++cccccccccc
 cccceeeeeeeeeeecc++...cc.....G.......C...C.......G.....cc...++ccfffffffffffcccc
-cccceeeeeeeeeeeeee++ccc%.........1.C...D...C.1.........%ccc++ffffffffffffffcccc
+cccceeeeeeeeeeeeee++ccc%...........C...D...C...........%ccc++ffffffffffffffcccc
 cccceeeeeeeeeeeeeeeeccc%.....1....2.........2....1.....%cccffffffffffffffffcccc
 cccceeeeeeeeeeeeeeeeeecc.........C.:%HHHHH%:.C.........ccffffffffffffffffffcccc
 cccceeeeeeeeeeeeeeeeeeecc..........%HHHHHHH%..........ccfffffffffffffffffffcccc
@@ -488,7 +493,7 @@ cccceeeeeeeeeeeeeeeeeeeec.......C..HHHHHHHHH..C.......cffffffffffffffffffffcccc
 cccceeeeeeeeeeeeeeeeeeecc..........%HHHHHHH%..........ccfffffffffffffffffffcccc
 cccceeeeeeeeeeeeeeeeeecc.........C.:%HHHHH%:.C.........ccffffffffffffffffffcccc
 cccceeeeeeeeeeeeeeeeccc%.....1....2.........2....1.....%cccffffffffffffffffcccc
-cccceeeeeeeeeeeeee++ccc%.........1.C...D...C.1.........%ccc++ffffffffffffffcccc
+cccceeeeeeeeeeeeee++ccc%...........C...D...C...........%ccc++ffffffffffffffcccc
 cccceeeeeeeeeeecc++...cc.....G.......C...C.......G.....cc...++ccfffffffffffcccc
 cccccccccc++ccccc......cc..............1..............cc......ccccc++cccccccccc
 ccccccccc....cccc.......cc........1....:....1........cc.......cccc....ccccccccc
@@ -553,17 +558,18 @@ ENDMAP
 NAME:   grunt_profane_temple_geh
 TAGS:   grunt_profane_temple no_monster_gen
 : grunt_profane_halls_setup(_G)
-KMONS:  4 = hell hog
-KMONS:  5 = sun demon
-KMONS:  6 = balrug
+KMONS:  4 = sun demon
+KMONS:  5 : hell hog / hell knight
+KMONS:  6 : balrug / salamander tyrant
 KFEAT:  A = stone_arch
 NSUBST: 4 = 8 = 4. / *:., 5 = 1:6 / *:5
 MARKER: A = lua:props_marker { portal=1 }
 KMASK:  12345 = !no_monster_gen
+TILE:   b = bedevilled_crystal_gehenna
 MAP
-ll...l%%%l...ll
+ll...l%b%l...ll
 l....l%%%l....l
-...............
+.......%.......
 ..ll...5...ll..
 ..l4..lll..4l..
 ..l..lllll..l..
@@ -586,16 +592,17 @@ ENDMAP
 NAME:   grunt_profane_temple_coc
 TAGS:   grunt_profane_temple no_monster_gen
 : grunt_profane_halls_setup(_G)
-KMONS:  4 = ice devil / ettin simulacrum w:20 / freezing wraith
+KMONS:  4 = ettin simulacrum / spriggan berserker simulacrum / freezing wraith
 KMONS:  5 = quicksilver dragon simulacrum
-KMONS:  6 = blizzard demon
+KMONS:  6 : blizzard demon / walking frostbound tome w:5
 KMONS:  8 = ice statue
 KFEAT:  A = stone_arch
 NSUBST: 4 = 8:4 / *:., 5 = 1:6 / *:5
 MARKER: A = lua:props_marker { portal=1 }
 KMASK:  12345 = !no_monster_gen
+TILE:   b = bedevilled_crystal_cocytus
 MAP
-wwww.......wwww
+wwww...b...wwww
 www....5....www
 ww...........ww
 w...4.www.4...w
@@ -621,16 +628,19 @@ NAME:   grunt_profane_temple_tar
 TAGS:   grunt_profane_temple no_monster_gen
 : grunt_profane_halls_setup(_G)
 KMONS:  4 = shadow wraith / nothing w:30
-KMONS:  5 = soul eater
-KMONS:  6 = reaper w:18 / lich w:5 / bone dragon w:4
+KMONS:  5 : soul eater / flayed ghost
+KMONS:  6 : reaper w:18 / lich w:5 / bone dragon w:4
 KFEAT:  A = stone_arch
 NSUBST: 4 = 8:4 / *:., 5 = 1:6 / *:5
 MARKER: A = lua:props_marker { portal=1 }
+TILE:   b = bedevilled_crystal_tartarus
 TILE:   G = dngn_gravestone
+# FIXME: this doesn't work for encompass subvaults.
+# Lots of statues elsewhere in the level, maybe trim them down?
 : set_feature_name("granite_statue", "a gravestone")
 KMASK: 12345 = !no_monster_gen
 MAP
-.%%%.......%%%.
+.%%%...b...%%%.
 .ccc...4...ccc.
 ...............
 .4....ccc....4.
@@ -655,18 +665,19 @@ ENDMAP
 NAME:   grunt_profane_temple_dis
 TAGS:   grunt_profane_temple no_monster_gen
 : grunt_profane_halls_setup(_G)
-KMONS:  4 = iron troll / nothing
-KMONS:  5 = skeletal warrior / iron troll w:1
-KMONS:  6 = iron dragon / war gargoyle
+KMONS:  4 : iron troll / skeletal warrior
+KMONS:  5 : iron dragon / walking earthen tome
+KMONS:  6 : war gargoyle w:15 / caustic shrike
 KFEAT:  A = stone_arch
+KFEAT:  G = metal_statue
 MARKER: A = lua:props_marker { portal=1 }
-NSUBST: 4 = 8:4 / *:., 5 = 1:6 / *:5
+NSUBST: 4 = 5:4 / 2 = 4. / *:., 5 = 1:6 / *:5
 KMASK:  12345 = !no_monster_gen
 COLOUR: G = cyan
 TILE:   G = dngn_statue_iron_golem
-: set_feature_name("granite_statue", "iron statue")
+TILE:   b = bedevilled_crystal_dis
 MAP
-%%.5.......5.%%
+%%.5...b...5.%%
 %G...........G%
 .....4...4.....
 ....4.v.v.4....
@@ -750,27 +761,25 @@ DEPTH:   Depths:2-
 WEIGHT:  1 (Depths:$), 10
 # everything here (bar the very top) spawns regularly in depths,
 # if possibly as part of a band.
-MONS:    occultist w:8 / necromancer w:8 / tengu warrior / \
-         spriggan defender w:2 / tengu conjurer / nothing w:2
+MONS:    occultist w:8 / necromancer w:8 / tengu warrior w:8 / \
+         tengu conjurer / deep troll w:6 / spriggan rider w:4
 MONS:    rakshasa / hell knight / stone giant w:5 / \
          vampire mage / ettin / spriggan berserker / \
          deep troll earth mage / deep troll shaman w:5
 MONS:    fire giant / frost giant / stone giant w:6 / lich w:4 / \
          vampire knight / spriggan air mage / tengu reaver / \
-         deep elf high priest w:4 / deep elf demonologist w:4 / \
-         deep elf annihilator w:4 / deep elf sorcerer w:4 / \
-         deep elf death mage w:2 / deep elf elementalist w:2
+         walking earthen tome / walking divine tome
 MONS:    very ugly thing w:10 / ugly thing w:30 / \
-         great orb of eyes / glowing orange brain / deep troll
+         great orb of eyes / glowing orange brain / glass eye w:4
 MONS:    fire dragon / ice dragon / very ugly thing / glowing shapeshifter / \
-         titanic slime creature w:4 / jiangshi w:2 / phantasmal warrior w:2 / \
+         jiangshi w:4 / phantasmal warrior w:4 / \
          caustic shrike skeleton w:2 / spark wasp zombie w:2
-MONS:    sphinx / entropy weaver / spark wasp / flayed ghost / \
+MONS:    sphinx / spark wasp / flayed ghost / \
          storm dragon w:4 / shadow dragon w:4 / quicksilver dragon w:4 / \
          iron dragon w:4 / golden dragon w:4 / caustic shrike / \
          tentacled monstrosity / juggernaut zombie w:2
 MONS:    spriggan defender w:30 / titan w:30 / ancient lich w:30 / \
-         deep elf blademaster / deep elf master archer / \
+         walking crystal tome / walking frostbound tome / \
          draconian monk / draconian annihilator / draconian knight / \
          juggernaut w:20
 KMONS:   Z = draconian knight / draconian annihilator

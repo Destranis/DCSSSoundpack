@@ -82,7 +82,7 @@ ENDMAP
 # Vaults patterns 0: vanguard
 #
 NAME:    david_vaults_3
-TAGS:    vaults_entry transparent
+TAGS:    vaults_entry transparent no_trap_gen
 MONS:    human
 KMONS:   2 = orc knight w:20 / Urug, orc knight
 KMONS:   3 = centaur warrior w:30 / Nessos, centaur warrior
@@ -238,7 +238,7 @@ ENDMAP
 # Tiered entry
 #
 NAME:   grunt_vaults_entry_tiered
-TAGS:   vaults_entry no_monster_gen no_tele_into transparent
+TAGS:   vaults_entry no_monster_gen transparent
 MONS:   human w:29 / orc warrior w:1
 MONS:   necromancer / arcanist / yaktaur w:2
 MONS:   vault guard w:58 / deep elf knight w:1 / deep elf archer w:1
@@ -407,29 +407,34 @@ vv+++vv
   @@@
 ENDMAP
 
-NAME:   hellmonk_vaults_order_and_chaos
-TAGS:   vaults_entry transparent no_monster_gen
-MONS:   entropy weaver / glowing orange brain / great orb of eyes w:1
-MONS:   ironbound preserver / vault guard / peacekeeper w:1
-SHUFFLE: AB/CO
-NSUBST: - = 1:1 / *:-, . = 1:2 / *:.
-KFEAT:  A = enter_vaults
-KFEAT:  O = enter_vaults
-KITEM:  B = any armour good_item / gold good_item w:50
-KITEM:  C = any weapon good_item ego:chaos / any wand w:50
-FTILE:  .BO2 = floor_hall
-FTILE:  -AC1 = floor_nerves
+NAME:    hellmonk_vaults_order_and_chaos
+TAGS:    vaults_entry transparent no_monster_gen
+MONS:    entropy weaver / glowing orange brain / great orb of eyes w:1
+MONS:    ironbound preserver / vault guard / peacekeeper w:1
+KFEAT:   AO = enter_vaults
+KFEAT:   g = metal_statue
+KITEM:   B = any armour good_item / gold good_item w:50
+KITEM:   C = any weapon good_item ego:chaos / any wand w:50
+SHUFFLE: AB / CO, gG / "' / "' / "'
+NSUBST:  -" = 1:1 / *:-, .' = 1:2 / *:.
+FTILE:   .BO2g = floor_hall
+FTILE:   -AC1G = floor_nerves
+COLOUR:   G = mountain, g = silver
+TILE:     G = dngn_scintillating_statue
+TILE:     g = dngn_silver_statue
+: set_feature_name("granite_statue", "scintillating statue")
+: set_feature_name("metal_statue", "silver statue")
 MAP
     vvv
    vv.vv
-  vv...vv
+  vv..gvv
  @v..B..v
  @-....vv
  @--...v
  v---..@
 vv----.@
 v--A--v@
-vv---vv
+vvG--vv
  vv-vv
   vvv
 ENDMAP

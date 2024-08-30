@@ -107,7 +107,7 @@
     Alexander Beisig
     benadryl
     biasface
-    bjobae
+    Björn Bähre
     Stu Black
     blackcustard
     Peter 'xFleury' Blain
@@ -145,13 +145,16 @@
     Tom Conrad
     Vitor 'Baconkid' Costa
     RJ Cunningham
+    Cureja
     Aaron Curtis
     Simon Curtis
     cut1less
     Matthew Daley
     David Damerell
+    Darby
     Paul Dejean
     Denzi
+    Sean Dewar
     Ed Dewey
     dicedlemming
     Lothar Dierkes
@@ -202,6 +205,7 @@
     Sophie Hamilton
     Chris Hamons
     Tomas Krag Hansen
+    Lexi Hattaway
     Taylor Hedberg
     Anders Heggestøyl
     Alex Henry
@@ -210,10 +214,12 @@
     Chris Honey
     Sylvia 'Onia' Hörnke
     Benoit Hudson
+    Michael Hunter
     Hurricos
     Iainuki
     ICC
     Icy Lich
+    Wizard Ike
     Ilyak
     Matthew Ince
     Mitsuhiro Itakura
@@ -226,6 +232,7 @@
     Dominic 'dk' Kexel
     Jarmo Kielosto
     Brandon Kime
+    King7artist
     Kornel Kisielewicz
     Vesa Kivimäki
     Daniel Klein
@@ -267,6 +274,7 @@
     István Markó
     Gabriel Marks
     Jean Martel
+    meckryl
     James 'Eronarn' Meickle
     Jacob Meigs
     mgdelmonte
@@ -298,21 +306,25 @@
     Heinrich Ody
     Chris Oelmueller
     John Olender
+    Nephila Hirsch Oliveira
     Aaron Olowin
     Andrew O'Neill
     Oneirical
     Justin Clark Ong
     Yuuma Oohara
+    orjb1
     Julian Ospald
     Malwyn P
     palyth
     panicbit
     Anders Papitto
     William Parker
+    Christopher Partin
     Pedro
     Pekkekke
     Rytis Petronis
     Arlen Phillips
+    pianoman523
     pikaro
     Lemuel Pitkin
     Paul Pollack
@@ -343,6 +355,7 @@
     Nate Rook
     David Rose
     runrin
+    rypofalem
     Risto Saarelma
     Sebastian Salman
     Petri Salminen
@@ -350,6 +363,7 @@
     Brett Scarborough
     Roderick Schertler
     sdynet
+    SentientSupper
     Roman Sêk
     Brennan Shacklett
     ShadyAmish
@@ -383,6 +397,7 @@
     Matthew Tadd
     William Tanksley, Jr.
     Tedronai
+    tekkud
     Chris Terenzi
     Jared 'Twinge' Tinney
     Matt Titus
@@ -397,6 +412,7 @@
     Steven Wheeler
     WhiteShark
     Thomas Willem
+    Sam Willett
     Evan Williams
     Mara Williamson
     Jeremey Wilson
