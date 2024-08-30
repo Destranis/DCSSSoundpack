@@ -6239,7 +6239,7 @@ ound += arrow hits you!:se\punch9.wav
 
 ound += bolt hits you!:se\bolt.wav
 
-ound += sling bullet hits you!:se\punch9.wav
+sound += sling bullet hits you!:se\punch9.wav
 
 sound += freezes you!:se\antahit.wav
 
@@ -6549,19 +6549,19 @@ sound += You shoot a steel bolt:se\bolt.wav
 
 sound += You shoot a silver bolt:se\bolt.wav
 
-sound += You shoot a sling:se\bow2.wav
+sound += You shoot a sling:se\sling.wav
 
 sound += You shoot a stone:se\stonethrow.wav
 
-sound += You shoot a silver sling:se\bow2.wav
+sound += You shoot a silver sling:se\sling.wav
 
-sound += You shoot a steel sling:se\bow2.wav
+sound += You shoot a steel sling:se\slng2.wav
 
 sound += You shoot an arrow:se\bow3.wav
 
 sound += You shoot a poisoned bolt:se\bolt.wav
 
-sound += You shoot a poisoned sling:se\bow2.wav
+sound += You shoot a poisoned sling:se\sling2.wav
 
 sound += You shoot an poisoned arrow:se\bow3.wav
 
@@ -6579,13 +6579,13 @@ sound += shoots a steel bolt:se\bolt.wav
 
 sound += shoots a silver bolt:se\bolt.wav
 
-sound += shoots a sling:se\bow2.wav
+sound += shoots a sling:se\sling.wav
 
 sound += shoots a stone:se\stonetrow.wav
 
-sound += shoots a silver sling:se\bow2.wav
+sound += shoots a silver sling:se\sling.wav
 
-sound += shoots a steel sling:se\bow2.wav
+sound += shoots a steel sling:se\sling.wav
 
 sound += shoots an arrow:se\bow3.wav
 
@@ -6593,7 +6593,7 @@ sound += You shoot:se\shoot.wav
 
 sound += shoots a poisoned bolt:se\bolt.wav
 
-sound += shoots a poisoned sling:se\bow2.wav
+sound += shoots a poisoned sling:se\sling.wav
 
 sound += shoots a poisoned arrow:se\bow3.wav
 
