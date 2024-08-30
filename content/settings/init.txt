@@ -6723,3 +6723,6 @@ sound += The walls around you are covered in ice:se\wallofice.wav
 sound +=Found:se\objectgeneric.wav
 
 sound +=The rat squeaks loudly:se\ratgeneric.wav
+
+sound +=No reachable target in view!:se\notarget1.wav
+sound +=No target in view!:se\notarget2.wav
