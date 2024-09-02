@@ -576,15 +576,11 @@ sound += eyes darken:se\unholy.wav
 
 sound += but rights himself:se\up.wav
 
-sound += kill Dowan:se\dropdead.wav
 
-sound += kill Duvessa:se\dropdead.wav
 
-sound += Dowan dies:se\dropdead.wav
 
 sound += Dowan looks drowsy:se\sleep.wav
 
-sound += Duvessa dies:se\dropdead.wav
 
 sound += Duvessa looks drowsy:se\sleep2.wav
 
@@ -6323,7 +6319,6 @@ sound += You feel less perceptive:se\buffend2.wav
 sound += feel spirits watching:se\holysh.wav
 
 sound += feel strangely alone:se\airbuffend.wav
-sound += You kill:se\dropdead.wav
 
 sound += feel stealthy:se\inv1.wav
 
