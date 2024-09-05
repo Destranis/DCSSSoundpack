@@ -706,11 +706,11 @@ sound += Menkaure is destroyed:se\dieund2.wav
 sound += destroy Menkaure:se\dieund2.wav
 
 
-sound += Blork the orc shout:se\man3.wav
+sound += Blorkula  the orcula shout:se\man3.wav
 
-sound += Blork the orc die:se\dieman3.wav
+sound += Blorkula the orcula die:se\dieman3.wav
 
-sound += kill Blork the orc:se\dieman3.wav
+sound += kill Blorkula the orcula:se\dieman3.wav
 
 sound += Blork the orc looks drowsy:se\sleep.wav
 
@@ -6716,7 +6716,7 @@ sound += go up through the gate:se\enter.wav
 sound += rune of Zot:se\rune2.wav
 
 sound += rune and feel:se\rune3.wav
-sound += shouts:se\gobó.wav
+sound += shouts!:se\gobó.wav
 
 sound += The walls around you are covered in ice:se\wallofice.wav
 
