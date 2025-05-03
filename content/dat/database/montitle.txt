@@ -247,6 +247,10 @@ Nikola title
 
 Nikola the Mad Inventor
 %%%%
+Nobody title
+
+Nobody, Grudge of the Unmourned
+%%%%
 Norris title
 
 Norris the Philosopher
@@ -302,6 +306,10 @@ Sojobo, Queen of Tengu
 Sonja title
 
 Sonja, the Graceful Assassin
+%%%%
+Sprozz title
+
+Sprozz, Inventive Apiarist
 %%%%
 Terence title
 

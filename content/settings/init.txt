@@ -6727,3 +6727,6 @@ sound +=The rat squeaks loudly:se\ratgeneric.wav
 sound +=No reachable target in view!:se\notarget1.wav
 sound +=No target in view!:se\notarget2.wav
 sound +=You kill:se\dropdead.wav
+show_more = false
+fail_severity_to_confirm = 0
+fail_severity_to_quiver = 5

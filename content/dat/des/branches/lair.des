@@ -10,6 +10,8 @@
 ################################################################################
 
 {{
+crawl_require('dlua/vault.lua')
+
 function wad_woods_setup(e, uniq, weight, mist, delaynum, sizenum, spreadnum)
     if uniq == "decor" then
         e.tags("uniq_wad_woods_decor decor extra")
@@ -960,7 +962,7 @@ tt.t1tt1WW1tt.tt
 ttt11tttWWttt1t1
 tt.ttt1WWWtt*ttt
 t.ttttWWWttttt1t
- tttt.WwWttt.tt
+ tttt.WwWtttttt
    tttWwW1tttt
    tttWwW..ttt
     ttWwWt..t
@@ -1231,13 +1233,14 @@ DEPTH:  Lair:2-, !Lair:$
 MONS:   centaur w:4 / spriggan
 MONS:   wolf, black bear, polar bear
 KMONS:  P = plant / bush
+KFEAT:  d = cache of baked goods
 NSUBST: Q = 2:1 / *:.
 NSUBST: R = 3:2 / 1:3 / 1:4 / *:.
 MAP
    xxxxxxxxx
   xxxttttxxxx
  xxxttttttttxx
-xxtttt...tttxxx
+xxtttt.d.tttxxx
 xttt..Q.Q..ttxx
 xttt.Q.R.Q.tttx
 xtt.........ttx
@@ -1313,7 +1316,9 @@ ENDMAP
 NAME:   grunt_forest_large_clearing_hut
 TAGS:   transparent
 DEPTH:  Lair
-MONS:   plant / bush, spriggan / centaur w:2
+MONS:   plant / bush
+KMONS:  2 = spriggan / centaur w:2
+KFEAT:  2 = cache of baked goods
 SUBST:  t = t..
 SUBST:  . = 1 .:90
 COLOUR: -*29 = lightgrey
@@ -1619,14 +1624,14 @@ KFEAT:  e = cache of fruit
 KFEAT:  ^~ = .
 : local size = crawl.random2(9)
 : if size > 7 then
-SUBST:  '`"- = ^:35 ~:5 .
-NSUBST: . = 2:1 / * = d:2 e:1 .:140 1:20 2:4
+SUBST:  '`"- = ^:35 ~:15 .
+NSUBST: . = 2:1 / * = d:2 .:140 1:20 2:4
 : elseif size > 3 then
-SUBST:  "` = ^:35 ~:5 .
-NSUBST: . = 2:1 / * = d:3 e:2 .:42 1:18 2:4
+SUBST:  "` = ^:35 ~:15 .
+NSUBST: . = 2:1 / * = d:3 .:42 1:18 2:4
 : else
-SUBST:  '" = ^:35 ~:5 .
-NSUBST: . = 2:1 / * = d:3 e:2 .:42 1:18 2:4
+SUBST:  '" = ^:35 ~:15 .
+NSUBST: . = 2:1 / * = d:3 .:42 1:18 2:4
 : end
 CLEAR:  `'"-
 COLOUR: ^d = green
@@ -1639,12 +1644,12 @@ MAP
    -``------------
  -``````-----------
  ```````"'''-------
--`````"""'''''-``----
+-`````e""'''''-``----
 --```"""'''''""````--
 ----`"''''''"""`````-
------'''''''"""`````-
+-----'''''''""e`````-
 -----'""'''''""````--
-----``""""''''-``----
+----``""e"''''-``----
  --`````"""'--------
  --````````---------
    -``````--------
@@ -1853,14 +1858,15 @@ DEPTH:   Lair
 KMONS:   P = plant
 KMASK:   ` = no_monster_gen
 SHUFFLE: xP'. / xP'. / .'xP
-SUBST:   '` = .
+SUBST:   '` = ., p : p.
+: decorative_floor(_G, 'p', "flower patch")
 MAP
            xPx
          xxPxPxx    ````..@
         xPP'.'PPx   ....'''
       xxP''.'.''Px...'''PPP
-   xxxPP'```.``'Px.''PPPxxx
-xxxPPP''.xP'``.```'PPxxx
+   xxxPP'```p``'Px.''PPPxxx
+xxxPPP''.xP'``p```'PPxxx
 PPP'''...xP''.'.''Pxx
 '''....   xPP'.'PPx
 @..````    xxPxPxx
@@ -1921,6 +1927,995 @@ MAP
 .....@.....
 ENDMAP
 
+NAME:   nicolae_lair_blooderflies
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  p = plant
+KMONS:  1 = butterfly
+KITEM:  S = human skeleton
+NSUBST: ` = 2=S / 2=SS.` / 2=1 / 2=11.` / 4=.` / ., - = 4=t / 4=t. / ..p
+KPROP:  S1` = bloody
+MAP
+..........
+.--------.
+.-pppppp-.
+.-p````p-.
+.-p````p-.
+.-p````p-.
+..p````p-.
+.-pppppp-.
+.--------.
+..........
+ENDMAP
+
+NAME:    nicolae_lair_cache_of_fresh_prey
+TAGS:    decor extra transparent
+DEPTH:   Lair
+SHUFFLE: PQ/pq
+NSUBST:  Q' = 1=@ / x, S = S / S- / .-
+SUBST:   P = ., pq = x, ` = x_
+KPROP:   S- = bloody
+ : dgn.delayed_decay(_G, "S", "yak corpse / dream sheep corpse / human corpse")
+MAP
+   `x`
+  `xxxqq
+`xxx-xpq
+xxSSx.x'
+xxSSxxPQ
+`xxxxQQQ
+ `xx`
+ENDMAP
+
+NAME:   nicolae_lair_carnivore_tree_lair
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KITEM:  S = yak skeleton / dream sheep skeleton / human skeleton w:5
+SUBST:  s = t., z = t_
+NSUBST: S = 2=S / S` / `
+KPROP:  ` = bloody
+CLEAR:  _
+MAP
+ .........
+......s....
+..ssst.tt..
+.sttttt.ts.
+sttSStt.ts.
+zttSSt`ttz
+ ztttSttz
+  zttttz
+   zzzz
+ENDMAP
+
+NAME:    nicolae_lair_clover_grove
+TAGS:    decor extra transparent
+DEPTH:   Lair
+KMONS:   p = plant
+KMONS:   P = bush
+SHUFFLE: DEFHJK, LMNO
+SUBST:   DEL = ., F = t, H : tP, M : tP, J : tP.., K : tP.., N : tP.., O : tP..
+SUBST:   . = .:70 p
+MAP
+L.M.N.M.L
+.DEH.HED.
+MEFJ.JFEM
+.HJK.KJH.
+N...O...N
+.HJK.KJH.
+MEFJ.JFEM
+.DEH.HED.
+L.M.N.M.L
+ENDMAP
+
+NAME:  nicolae_lair_clump_of_vegetation
+TAGS:  decor extra transparent
+DEPTH: Lair
+KMONS: p = plant
+SUBST: a = tttpp., p = ppp..
+MAP
+ ...pap...
+...apapa...
+..papapap..
+.aapatapaa.
+pppaptpappp
+aaatttttaaa
+pppaptpappp
+.aapatapaa.
+..papapap..
+...apapa...
+ ...pap...
+ENDMAP
+
+NAME:  nicolae_lair_cropped_circle
+TAGS:  decor extra transparent
+DEPTH: Lair
+KMONS: p = plant w:49 / withered plant w:1
+: if you.depth() == 1 then
+SUBST: S = }])
+: elseif you.depth() ~= dgn.br_depth(you.branch()) then
+SUBST: S = {}[]()
+: end
+SUBST: S = {[(, ` = p_
+CLEAR: _
+MAP
+       `````
+    ```ppppp```
+   `ppp.....ppp`
+  `ppp.ppppp.ppp`
+ `ppp.pp...pp.ppp`
+ `pp.p..ppp..p.pp`
+ `p.p.pp...pp.p.p@
+`p.pp.p.ppp.p.pp.p
+`p.p.p.p...p.p.p.p
+`p.p.p.p.S.p.p.p.p
+`p.p.p.p...p.p.p.p
+`p.pp.p.ppp.p.pp.p
+ `p.p.pp...pp.p.p`
+ `pp.p..ppp..p.pp`
+ `ppp.pp...pp.ppp`
+  `ppp.ppppp.ppp`
+   `ppp.....ppp`
+    ```ppppp```
+       `````
+ENDMAP
+
+NAME:    nicolae_lair_crumbling_lobby
+TAGS:    extra decor transparent
+DEPTH:   Lair:2-, !Lair:$
+ORIENT:  float
+KMONS:   ! = pile of debris
+SHUFFLE: []/<>, {}/[]/(), PQ/pq, PQ
+NSUBST:  a = 2=@ / x
+SUBST:   pq = ., P = V:50 !, Q = G:50 !, x = x:80 ttt., " = xxxt
+MAP
+      xxxxx
+      x...x
+      x.[.x
+   xaax...xaax
+   a.........a
+   a.P..p..Q.a
+xxxx.........xxxx
+x......xxx......x
+x.]..q.x"x.q..}.x
+x......xxx......x
+xxxx.........xxxx
+   a.Q..p..P.a
+   a.........a
+   xaax...xaax
+      x.{.x
+      x...x
+      xxxxx
+ENDMAP
+
+NAME:   nicolae_lair_deadzone
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  p = withered plant
+KITEM:  S = 0 skeleton / human skeleton w:1 / elf skeleton w:1
+SUBST:  t = ttt.., . = .:60 p
+NSUBST: . = 4=S / 4=S. / .
+COLOUR: t = lightgrey w:5 / brown
+TILE:   t = dngn_tree_dead
+: set_feature_name("tree", "dead tree")
+MAP
+   .......
+  ..ttttt..
+ ..t.ttt.t..
+..t.t...t.t..
+.t.t.ttt.t.t.
+.tt.t.t.t.tt.
+.tt.ttttt.tt.
+.tt.t.t.t.tt.
+.t.t.ttt.t.t.
+..t.t...t.t..
+ ..t.ttt.t..
+  ..ttttt..
+   .......
+ENDMAP
+
+NAME:   nicolae_lair_decay_into_growth
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  F = fungus
+SUBST:  ` = ..F
+NSUBST: t = 4=t / 2=F / ttF
+COLOUR: t = lightgrey w:5 / brown
+TILE:   t = dngn_tree_dead
+: set_feature_name("tree", "dead tree")
+MAP
+ .......
+..``````.
+.``tttt`.
+.`tttt``.
+.``````..
+........
+ENDMAP
+
+NAME:   nicolae_lair_decrepit_plaza
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  P = plant
+KFEAT:  D = closed_door
+SUBST:  ` = x., s = tt., S = ttx, - = +., p = m., Z = tt_, z : tt!, . = P .:90
+NSUBST: ! = | / !, % = 4=% / 4=%P / .P
+CLEAR:  _
+KPROP:  |!D = no_tele_into
+KMASK:  |!D = opaque
+MAP
+              ZZZZZ
+  @....sZtt  ZtttttZ
+ t.xx``xtt.`xxx```tt
+ t.xt%.ttS..stts%`ttt
+ t...ts.%m.mttts.`.Z
+ Z.x%st.tx.xzztts..Z
+   St..m-x.xDmztt`.
+   `%.t+...ttD!!tS.
+  tx`px`....txxmxS.
+  Zt.....tV........
+ ZtxSp``.t..sxxpSx.@
+Zttx.%.-..s..+s.%x.Z
+Ztt`s..p-`.x+m..tx.tZ
+Ztt`.%...`tx.s%t.xttZ
+Ztt`.%.%.ptpttt%sStZ
+ Ztxt.sttSt..%..sSt
+  Zxxxxx``..``xxSSt
+  ZtttZ ......stttZ
+   ZZZ   ZZZ .@ZZZ
+ENDMAP
+
+NAME:   nicolae_lair_defunct_apartments
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  p = plant
+KITEM:  ` = human skeleton
+: local glifz = "DEFHJKLMNOPQ"
+: for i = 1, string.len(glifz), 1 do
+:    nsubst(string.sub(glifz, i, i) .. " = + / x")
+: end
+NSUBST: R = 2=+ / +x / x, . = 3=` / 2=`. / .
+SUBST:  G = GVt, a = .:70 t, s= t...., x = x:80 ., + = +:60 ., - = ., . = .:90 p
+MAP
+-------------------
+-xxDxxxExxxFxxxHxx-
+-xa.axa.axa.axa.ax-
+-D...E...x...F...H-
+-xa.axa.axa.axa.ax-
+-xxJxxxRxxxRxxxKxx-
+-xa.ax..s.s..xa.ax-
+-J...R.t.t.t.R...K-
+-xa.axs.s.s.sxa.ax-
+-xxxxx.t.G.t.xxxxx-
+-xa.axs.s.s.sxa.ax-
+-L...R.t.t.t.R...M-
+-xa.ax..s.s..xa.ax-
+-xxLxxxRxxxRxxxMxx-
+-xa.axa.axa.axa.ax-
+-N...O...x...P...Q-
+-xa.axa.axa.axa.ax-
+-xxNxxxOxxxPxxxQxx-
+-------------------
+ENDMAP
+
+NAME:    nicolae_lair_demoated_fort
+TAGS:    extra decor transparent no_pool_fixup
+DEPTH:   Lair
+KMONS:   1 = plant
+SHUFFLE: Pp/Qq
+NSUBST:  PR = 1=W
+SUBST:   p = ., PQ = w, q = x, w = wwwwwW, x = xx., c = ccccc., W = WWWWW.
+SUBST:   G = GGVV., . = .:100 1
+MAP
+.............
+.............
+..wPPRQQwww..
+..wcpcqcxcw..
+..wx.....xw..
+..wc.....cw..
+..wx..G..xw..
+..wc.....cw..
+..wx.....xw..
+..wcxcxcxcw..
+..wwwwwwwww..
+.............
+.............
+ENDMAP
+
+NAME:   nicolae_lair_die-orama
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  M = hydra / death yak / polar bear / dire elephant / alligator
+KITEM:  S = human skeleton
+KPROP:  ` = no_tele_into
+SUBST:  q = t``
+NSUBST: D = + / n, ` = M / 2=S / S` / 3=' / 3='` / `
+SUBST:  - = x:50 t, n = m:50 t, s = t.., z = t__
+KPROP:  MS' = bloody
+KMASK:  +MS'` = no_monster_gen
+KMASK:  +MS'` = no_trap_gen
+KMASK:  +MS'` = no_item_gen
+KMASK:  +MS'` = opaque
+CLEAR:  _
+MAP
+  zzzzzzzzz
+..sttttttttz
+.stttttttttz
+.sx-D-D--ttz
+.sxq```q-ttz
+..m`````Dttz
+.sxq```q-ttz
+.sxxmxmxxts
+..ss.s.sss.
+@..........
+ENDMAP
+
+NAME:   nicolae_lair_flooded_remnant
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  P = plant
+KITEM:  S = human skeleton
+NSUBST: D = m / x, E = m / x, F = m / -, H = . / m / -
+SUBST:  M = wP, - = xx., ` = ..P
+MAP
+  .........
+xxDDDDDD--.
+xSPMwwM``-.
+EPMwwwwM`H.
+E`MwwwwM`H.
+E``MwwM``H.
+E```MM```H.
+x````````x.
+xxFFFFFFxx
+ENDMAP
+
+NAME:  nicolae_lair_flower_corridor
+TAGS:  decor extra transparent
+DEPTH: Lair
+SUBST: s = tF
+: decorative_floor(_G, "F", "flower patch")
+MAP
+tttttttttt
+tsssssssst
+@........@
+.tsssssst.
+.tsssssst.
+@........@
+tsssssssst
+tttttttttt
+ENDMAP
+
+NAME:   nicolae_lair_former_tree_maze
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  P = plant
+NSUBST: - = 2=. / 6=s / t
+SUBST:  s = tt., . = .:120 P:20 F
+: decorative_floor(_G, "F", "flower patch")
+MAP
+s.t.s...s.t.s
+..s.t---t.s..
+tst.-...-.tst
+....-.t.-....
+st--t.s.t--ts
+.-....s....-.
+.-.tsstsst.-.
+.-....s....-.
+st--t.s.t--ts
+....-.t.-....
+tst.-...-.tst
+..s.t---t.s..
+s.t.s...s.t.s
+ENDMAP
+
+NAME:   nicolae_lair_fungal_den
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  F = fungus
+KITEM:  S = yak skeleton / dream sheep skeleton / human skeleton w:5
+NSUBST: S = 2=S / SE / E
+SUBST:  ` = x_, E = F..
+CLEAR:  _
+MAP
+  ````````
+`xxxxxxxxxx`
+xx...xEEFFxx`
+x..x..E.SSFxx`
+xx.xx.FE.SFxx`
+`x..xxE.SSFxx`
+ .@.xxxEFFxx`
+    `xxxxxx`
+      ````
+ENDMAP
+
+NAME:  nicolae_lair_garden_over_the_wall_1
+TAGS:  decor extra transparent
+DEPTH: Lair
+KMONS: P = plant
+SUBST: x = x:70 t:20 ., . = ...P
+MAP
+.xx.
+.xx.
+.xx.
+.xx.     .xx.
+.xx.......xx...
+.xxxxxxxxxxxxxx
+.xxxxxxxxxxxxxx
+......xx.......
+     .xx.
+ENDMAP
+
+NAME:  nicolae_lair_garden_over_the_wall_2
+TAGS:  decor extra transparent
+DEPTH: Lair
+KMONS: P = plant
+SUBST: x = x:70 t:20 ., . = ...P
+MAP
+    .xx.
+.....xx...
+.xxxxxxxx.
+.xxxxxxxx.  .....
+.xx....xx.  .xxxx
+.xx.  .xx.  .xxxx
+.xx.  .xx.  .xx..
+.xx.  .xx....xx.
+      .xxxxxxxx.
+      .xxxxxxxx.
+      .......xx.
+            .xx.
+ENDMAP
+
+NAME:  nicolae_lair_garden_over_the_wall_3
+TAGS:  decor extra transparent
+DEPTH: Lair
+KMONS: P = plant
+SUBST: x = x:70 t:20 ., . = ...P
+MAP
+......  .......
+xxxxx.  .xxxxxx
+xxxxx.  .xxxxxx
+...xx....xx....
+  .xxxxxxxx.
+  .xxxxxxxx.
+...xx....xx..
+.xxxx.  .xxxx
+.xxxx.  .xxxx
+.xx...  .....
+.xx.
+ENDMAP
+
+NAME:  nicolae_lair_garden_over_the_wall_4
+TAGS:  decor extra transparent
+DEPTH: Lair
+KMONS: P = plant
+SUBST: x = x:70 t:20 ., . = ...P
+MAP
+   ..........  .......
+   .xxxxxxxx.  .xxxxxx
+   .xxxxxxxx.  .xxxxxx
+   .xx....xx.  .xx....
+....xx.  .xx....xx.
+xxxxxx.  .xxxxxxxx.
+xxxxxx.  .xxxxxxxx.
+.......  ..........
+ENDMAP
+
+NAME:    nicolae_lair_garden_over_the_wall_5
+TAGS:    decor extra transparent
+DEPTH:   Lair
+KMONS:   P = plant
+SHUFFLE: Qq/Rr
+SUBST:   R = x, r = ., Qq = _, x = x:70 t:20 ., . = ...P
+CLEAR:   _
+MAP
+  .........rrr
+  .xxxxxxxxRRR
+  .xxxxxxxxRRR
+  ....xx...rrr
+......xx...qqq
+xxxxxxxxxxxQQQ
+xxxxxxxxxxxQQQ
+...........qqq
+ENDMAP
+
+NAME:  nicolae_lair_grabbed_some_dinner
+TAGS:  decor extra transparent
+DEPTH: Lair, !Lair:$
+KMONS: Pp = plant
+KFEAT: ^ = shaft trap
+SUBST: s = tt., - = p., ! = P`, ' = .`
+KPROP: `P^ = bloody
+MAP
+@.....  sttt
+.'`'......stt
+.```.....-pptt
+.'``...``!PP^t
+....```..-pptt
+ ........sttt
+       sttt
+ENDMAP
+
+NAME:  nicolae_lair_lichen
+TAGS:  decor extra transparent
+DEPTH: Lair
+KMONS: F = fungus
+KMONS: P = plant
+SUBST: ` = FFF..P, - = PPP..F, ' = _..
+CLEAR: _
+MAP
+''''''''
+'`-`-`-'
+'-FPFP`'
+'`PttF-'
+'-FttP`'
+'`PFPF-'
+'-`-`-`'
+''''''''
+ENDMAP
+
+NAME:  nicolae_lair_little_watering_hole
+TAGS:  decor extra transparent
+DEPTH: Lair
+KMONS: p = plant
+KMONS: P = bush
+SUBST: D = tP, ` = ..p, - = ..P
+MAP
+   -....@
+  DPPPPP.
+ ttttwwP.
+ttD``wwP.
+D````ttP-.
+.@```tDD
+....Dt
+ENDMAP
+
+NAME:   nicolae_lair_lossy_orchard
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KFEAT:  F = cache of fruit
+SUBST:  s = t., S = t_, x = x:40 ., ' = _.
+NSUBST: f = 3=F / F..., ` = 2=F / .
+CLEAR:  _
+MAP
+     SSS.sttts.......'
+  Stttts...s...........'
+ Sttttst.tst.t.t.t.s...........'
+Stttts.fs.f..sf.......xxxxxxxx..'
+Sttttts.tststst.t.t.s.m`.....x..'
+Stttttts.s.f.s...f....x`.....+..'
+Stttttstst.t.t.t.t.s..m`.....x..'
+Stttttf..f.s..........xxxxxxxx..'
+Sttttstst.tstst.t.t.s..........'
+  Sttttts.s.f..........'
+      SSSS.t.s.......'
+ENDMAP
+
+NAME:   nicolae_lair_messy_den
+TAGS:   decor extra transparent
+DEPTH:  Lair, !Lair:$
+KMONS:  p = bush / plant w:5 / nothing w:1
+KMONS:  P = bush
+KITEM:  S = yak skeleton / dream sheep skeleton / human skeleton w:5
+KFEAT:  ^ = shaft trap
+NSUBST: ` = 2=P / `P / S / 2=`S / `
+SUBST:  ` = `..
+KPROP:  PS` = bloody
+MAP
+ ppp
+p```p
+p`^`p
+p```p
+ ppp
+ENDMAP
+
+NAME:   nicolae_lair_more_dang_stairs
+TAGS:   extra decor transparent
+DEPTH:  Lair:2-
+ORIENT: float
+: if you.depth() ~= dgn.br_depth(you.branch()) then
+SUBST: { = {}[]()
+: else
+SUBST: { = {[(
+: end
+NSUBST: - = . / t, D = 2=@ / x
+SUBST:  a = sy, s = t., y = x., ` = x_
+CLEAR:  _
+MAP
+  ``xxDDDxx``
+ `xxxy...yxxx`
+`xxy.a.a.a.yxx`
+`xy.a.s.s.a.yx`
+xx.a.st-ts.a.xx
+xya.sts.sts.ayx
+D..sts...sts..D
+D.a.-..{..-.a.D
+D..sts...sts..D
+xya.sts.sts.ayx
+xx.a.st-ts.a.xx
+`xy.a.s.s.a.yx`
+`xxy.a.a.a.yxx`
+ `xxxy...yxxx`
+  ``xxDDDxx``
+ENDMAP
+
+NAME:  nicolae_lair_overgrowve
+TAGS:  decor extra transparent
+DEPTH: Lair
+KMONS: p = plant
+KMONS: P = bush
+KMONS: F = fungus / toadstool w:2
+SUBST: ` = .__, s = t__, t = tt., . = p:5 .:7, p : p:100 F, t = t:80 P
+CLEAR: _
+MAP
+s``ss``ss`
+`tt..tt..s
+`tt..tt..s
+s..tt..tt`
+s..tt..tt`
+`tt..tt..s
+`tt..tt..s
+s..tt..tt`
+s..tt..tt`
+`ss``ss``s
+ENDMAP
+
+NAME:    nicolae_lair_percent_stairs
+TAGS:    decor extra transparent
+DEPTH:   Lair:2-
+ORIENT:  float
+SHUFFLE: {[(
+NSUBST:  D = . / s / t, E = . / s / t, F = . / s / t, H = . / s / t
+NSUBST:  J = . / t / s
+SUBST:   s = tt.
+MAP
+  xxxxx     tts..@
+ xxsssxx   tts.s..
+xxs.t.sxx ttsHs.s.
+xs.....sxtts.sHs.s
+xst.{.tsxts.s.sHst
+xs.....sxsEs.s.stt
+xxs.t.s.s.sEs.stt
+ xxsss.s.sJsEstt
+  xxxxs.sJs.stt
+   tts.sJs.sxxxx
+  ttsDsJs.s.sssxx
+ tts.sDs.s.s.t.sxx
+tts.s.sDsxs.....sx
+tsFs.s.stxst.[.tsx
+s.sFs.sttxs.....sx
+.s.sFstt xxs.t.sxx
+..s.stt   xxsssxx
+@..stt     xxxxx
+ENDMAP
+
+NAME:   nicolae_lair_planthole_bean
+TAGS:   decor extra transparent luniq_nico_planthole
+DEPTH:  Lair
+KMONS:  p = plant
+NSUBST: ' = 4=. / 4=x / 4=x., - = 2=t / tp / p
+MAP
+    ......
+    .'xx'..
+   ..xppx'.
+  ..'xp-px.
+...'xp--px.
+.'xxp--px'.
+.xpp---px..
+.xp--ppx'.
+.'xppxx'..
+..'xx'...
+ ......
+ENDMAP
+
+NAME:   nicolae_lair_planthole_diamond
+TAGS:   decor extra transparent luniq_nico_planthole
+DEPTH:  Lair
+KMONS:  p = plant
+NSUBST: ' = 5=. / 5=x / 6=x., - = 2=t / tp / p
+MAP
+   .....
+  ..'x'..
+ ..'xpx'..
+..'xp-px'..
+.'xp---px'.
+.xp-----px.
+.'xp---px'.
+..'xp-px'..
+ ..'xpx'..
+  ..'x'..
+   .....
+ENDMAP
+
+NAME:   nicolae_lair_planthole_kiki
+TAGS:   decor extra transparent luniq_nico_planthole
+DEPTH:  Lair
+KMONS:  p = plant
+NSUBST: ' = 4=. / 4=x / 4=x., - = 2=t / tp / p
+MAP
+..........
+.'xx''xx'...
+.xppxxppxx'.
+.xp-pp--ppx..
+.'xp-----px'.
+..xpp--pp-px.
+ .'xxppxxppx.
+ ...'xx''xx'.
+   ..........
+ENDMAP
+
+NAME:   nicolae_lair_planthole_pinch
+TAGS:   decor extra transparent luniq_nico_planthole
+DEPTH:  Lair
+KMONS:  p = plant
+NSUBST: ' = 6=. / 6=x / 6=x., -! = 1=pt, - = t / p, ! = t / p
+MAP
+ .......
+..'xxx'........
+.'xpppx'..'xx'..
+.xp---px''xppx'.
+.xp---ppxxp!!px.
+.xp--pxxpp!!!px.
+.'xppx''xp!!!px.
+..'xx'..'xpppx'.
+ ........'xxx'..
+        .......
+ENDMAP
+
+NAME:   nicolae_lair_planthole_trapezoid
+TAGS:   decor extra transparent luniq_nico_planthole
+DEPTH:  Lair
+KMONS:  p = plant
+NSUBST: ' = 3=. / 3=x / 4=x., - = t / tp / p
+MAP
+      ......
+    ...'xx'.
+  ...'xxppx.
+...'xxpp-px.
+.'xxpp--px'.
+.xpp----px..
+.xppp--px'.
+.'xxxpppx..
+....'xxx'.
+   .......
+ENDMAP
+
+NAME:   nicolae_lair_planthole_worm
+TAGS:   decor extra transparent luniq_nico_planthole
+DEPTH:  Lair
+KMONS:  p = plant
+NSUBST: ' = 4=. / 4=x / 2=x., - = 2=t / tp / p
+MAP
+         .......
+      ....'xxx'.
+   ....'xxxpppx.
+....'xxxppp--px.
+.'xxxppp---pppx.
+.xppp---pppxxx'.
+.xp--pppxxx'....
+.xpppxxx'....
+.'xxx'....
+.......
+ENDMAP
+
+NAME:   nicolae_lair_pondular_hallway
+TAGS:   decor extra transparent
+DEPTH:  Lair
+SUBST:  ~ = -.
+NSUBST: - = 8=t / 4=tw / w, p = ` / ., q = ` / .
+SUBST:  ` = ...xx, ' = x_
+CLEAR:  _
+MAP
+        'xxxxxxxxxxxx'
+     'xxxx``````````xxxx'
+  'xxxxxxx`........`xxxxxxx'
+xxxxxxxxx``.~----~.``xxxxxxxxx
+```ppp```..~------~..```qqq```
+@..```...`~~-wwww-~~`...```..@
+```ppp```..~------~..```qqq```
+xxxxxxxxx``.~----~.``xxxxxxxxx
+  'xxxxxxx`........`xxxxxxx'
+     'xxxx``````````xxxx'
+        'xxxxxxxxxxxx'
+ENDMAP
+
+NAME:   nicolae_lair_rhizomatic_trees
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  p = plant
+NSUBST: p = . / `t / t, q = . / `t / t, r = . / `t / t, s = . / `t / t
+NSUBST: D = . / `t / t, E = . / `t / t, F = . / `t / t, H = . / `t / t
+NSUBST: J = . / `t / t, K = . / `t / t, L = . / `t / t, M = . / `t / t
+NSUBST: N = . / `t / t
+SUBST:  ` = t.
+MAP
+ .............
+..`.`.`.`.`.`..
+.`tKt.tpt.tLt`.
+..K.K.p.p.L.L..
+.`tKtDt.tEtLt`.
+....D.D.E.E....
+.`tstDtFtEtqt`.
+..s...F.F...q..
+.`tstHtFtJtqt`.
+....H.H.J.J....
+.`tMtHt.tJtNt`.
+..M.M.r.r.N.N..
+.`tMt.trt.tNt`.
+..`.`.`.`.`.`..
+ .............
+ENDMAP
+
+NAME:  nicolae_lair_simplegrove
+TAGS:  extra decor transparent
+DEPTH: Lair
+KMONS: p = plant
+SUBST: t = tt., . = .:70 p
+MAP
+ ..tt..
+ .tttt....
+ .tttt.tt.
+...tt.tttt
+.tt...tttt
+tttt...tt.
+tttt.tt...
+.tt.tttt.
+....tttt.
+   ..tt..
+ENDMAP
+
+NAME:   nicolae_lair_sylvan_descent
+TAGS:   decor extra transparent
+DEPTH:  Lair, !Lair:$
+ORIENT: float
+NSUBST: p = . / t / .ttt, q = . / t / .ttt, r = . / t / .ttt
+SUBST:  - = ttx, t = t:110 ., ' = _xx, } = }])
+CLEAR:  _
+MAP
+''''
+xxxx'''
+-r-xxxx'''
+.t.-q-xxxx'''
+trt.t.-p-xxxx'
+.t.tqt.t.t.tx'
+trt.t.tpt.}.x'
+.t.tqt.t.t.tx'
+trt.t.-p-xxxx'
+.t.-q-xxxx'''
+-r-xxxx'''
+xxxx'''
+''''
+ENDMAP
+
+NAME:   nicolae_lair_to_the_finish
+TAGS:   decor extra transparent
+DEPTH:  Lair
+KMONS:  P = plant
+KITEM:  H = human skeleton
+KITEM:  M = black bear skeleton / elephant skeleton / anaconda skeleton
+KITEM:  d = damaged mundane short sword
+KITEM:  e = damaged mundane helmet
+NSUBST: ` = d / e, D = + / 2=. / x
+SUBST:  x = xxxx., . = ....P
+MAP
+.........
+.xDDDDDx.
+.D.....D.
+.D.H`..D.
+.D..`M.D.
+.D.....D.
+.xDDDDDx.
+.........
+ENDMAP
+
+NAME:   nicolae_lair_treehouse
+TAGS:   extra decor transparent
+DEPTH:  Lair
+NSUBST: p = mmx / x, q = mmx / x, r = mmx / x, s = + / x
+SUBST:  D : EKtt, J : HOtt, K : LPt, E : FLt, H : FNt, O : NZt
+SUBST:  P : QQQt, L : QQQMMMtt, F : MMMt, N : SSSMMMtt, Z : SSSt
+SUBST:  Q : RRRRt, M : RRRRt, S : RRRRt, R : .....t, x = x:100 .
+MAP
+.........
+.xpppppx.
+.qDEFHJr.
+.qKLMNOr.
+.qPQRSZr.
+.xxsssxx.
+.........
+ENDMAP
+
+NAME:    nicolae_lair_unfinished_basement
+TAGS:    decor extra transparent
+DEPTH:   Lair:2-
+WEIGHT:  5
+ORIENT:  float
+KMONS:   p = plant
+KFEAT:   - = broken_door
+NSUBST:  DE = 1=.
+SHUFFLE: VG
+SUBST:   S = {[(, D = c, E = n, + = +:35 -, G = G:35 ., V = V:35 .
+SUBST:   c = c:70 ., n = n:70 ., . = .:100 p
+MAP
+     .......
+   ...cDDDc...
+  ..cEc...cEc..
+ ..Gc.+.V.+.cG..
+ .ccccc...ccccc.
+..E.cccc+cccc.E..
+.cc+cc.....cc+cc.
+.D...c.....c...D.
+.D.V.+..S..+.V.D.
+.D...c.....c...D.
+.cc+cc.....cc+cc.
+..E.cccc+cccc.E..
+ .ccccc...ccccc.
+ ..Gc.+.V.+.cG..
+  ..cEc...cEc..
+   ...cDDDc...
+     .......
+ENDMAP
+
+NAME:   nicolae_lair_walls_n_trees_1
+TAGS:   decor extra transparent
+DEPTH:  Lair
+SUBST:  y = x., s = t., _ = _.
+NSUBST: - = + / x
+CLEAR:  _
+MAP
+ _____________
+_...sts......._
+_sst...stttts._
+_.tx-----xyyy._
+_t.-....tt..s._
+_.s-.sss...s.._
+_..-..s..yts.s_
+_s.xss..txt..t_
+_..ytt.yxxxy.._
+_s.yt.t..yttt._
+_..y..sss..ss._
+_.s..ss...s..._
+ _____________
+ENDMAP
+
+NAME:   nicolae_lair_walls_n_trees_2
+TAGS:   decor extra transparent
+DEPTH:  Lair
+SUBST:  y = x., s = t., _ = _.
+NSUBST: - = + / x, ` = + / x
+CLEAR:  _
+MAP
+ _____________
+_...sy........_
+_.s..y...sss.._
+_.tt.-.tt..y...__
+_yy--xxxyy...s..._
+_...sxttt..yttsy._
+_.st.y.t...y.t..._
+_.stsy..ss.y.s..._
+_..tsy.ss..`...t._
+_...s..yyy`x```y._
+ __..t..t..`...y._
+   _.y.....y..sy._
+    _____________
+ENDMAP
+
+NAME:   nicolae_lair_walls_n_trees_3
+TAGS:   decor extra transparent
+DEPTH:  Lair
+SUBST:  y = x., s = t., _ = _., S = t_
+NSUBST: - = + / x, ` = + / x
+CLEAR:  _
+MAP
+ _..ytSSSSSSttt__
+_.yyxxxxyyyxxt..._
+_...-.t....txt..._
+_.t.-t.ssts.x....._
+_...-..t.s.sxxxyy._
+_.yyxtt.stt.`..y.._
+_...xt.s..t.`...._
+_...y.s..s..`...._
+_..yyyyx````xxy.._
+ _..y..t....y...tS
+  _...ttttt...__S
+ENDMAP
+
 ###############################################################################
 # Remaining non-grouped regular Lair vaults.
 
@@ -1954,7 +2949,7 @@ ORIENT:  northeast
 DEPTH:   D:5-8, Lair:1-3
 MONS:    rat, quokka, river rat, hell rat
 ITEM:    gold / stone
-KFEAT:   e = cache of fruit
+KFEAT:   e = cache of meat
 SUBST:   d = d$$$........., e : e$.
 SHUFFLE: 234 / 324 / 243
 : if you.in_branch("Lair") then
@@ -1970,6 +2965,7 @@ SUBST:   4 = 430
 SUBST:   4 = 30
 :   end
 : end
+TILE:    e = dngn_cache_of_pizza
 MAP
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -2001,13 +2997,10 @@ ORIENT:  float
 DEPTH:   Lair:3-, !Lair:$
 MONS:    necromancer, elephant zombie
 MONS:    basilisk zombie / komodo dragon zombie
-KFEAT:   G = metal_statue
 SHUFFLE: 23
 NSUBST:  2 = 1:2 / * = 2., 3 = 1:3 / * = 3.
 SUBST:   % = %%%%%$$$**|, G = G.
-COLOUR:  G = mist
-TILE:    G = dngn_mystic_cage
-: set_feature_name("metal_statue", "mystic cage")
+: vault_metal_statue_setup(_G, "G", "mystic cage")
 MAP
              wwwwwwwww
         wwwwwwwwwwwwwwwww
@@ -2220,12 +3213,13 @@ TAGS:   no_monster_gen
 DEPTH:  Lair
 MONS:   river rat band, hell rat, river rat / rat
 KMONS:  P = plant / fungus w:2
+KFEAT:  d = cache of baked goods
 NSUBST: ' = 1:1 / 2:P / 2:2 / 2:3
 MAP
  xxxx
  xxxxxx
 xxd.'xxxx
-xx..'''xx
+xx.%'''xx
 xx'''.''xx
 xxx'''''xx
   x'x'.''x
@@ -2239,9 +3233,11 @@ TAGS:   ruin transparent
 DEPTH:  Lair
 MONS:   rat, river rat, hell rat
 KMONS:  D = pile of debris
-KITEM:  d = gold
-KFEAT:  C = cache of fruit
-NSUBST: d = 1:d / 1:C / 1:* / 1:9 / 1:3 / * = d11223......., c = 5:Dc / *:c
+ITEM:   quill talisman / quill talisman randart w:2
+KFEAT:  C = cache of fruit / cache of baked goods w:4
+NSUBST: d = 1:d / 1:C / 1:F / 1:* / 1:d / 1:9 / 1:3 / * = $11223.......
+NSUBST: c = 5:Dc / *:c
+: decorative_floor(_G, 'F', "broken floral vase")
 MAP
       .......
 .......ccccc.........
@@ -2289,7 +3285,7 @@ ENDMAP
 
 NAME:   kennysheep_basilisk_garden
 TAGS:   transparent
-DEPTH:  Lair:3-
+DEPTH:  Lair:2-
 MONS:   basilisk, pile of debris
 NSUBST: . = 2:1 / 3 = 11G / *:., G = 2:G2 / *:G
 TILE:   G = dngn_statue_axe / dngn_statue_cat / dngn_statue_centaur / \
@@ -2313,18 +3309,19 @@ DEPTH:  Lair
 MONS:   torpor snail
 KFEAT:  a = altar_cheibriados
 NSUBST: 1 = 1:1 / * = 1.
+TILE:   c = wall_stone_puffball
 MAP
  @
 x.x   xxxxxxxxx
 x.x  xx...1....@
 x.x xx.xxxxxxxx
-x.x x.xxbbbbbbxxxx
-x.xxx.xbbWWWWW...xx
-x.xx.xbbWbbbbbbxx.xxx
+x.xxx.xxbbbbbbxxxx
+x.xx..xbbWWWWW...xx
+x.cc.xbbWbbbbbbcc.xxx
 x...1.WWW1a1WWW..1...@
 xxx.xxbbbbbbWbbx.xxxx
-  xx...WWWWWbbx.xx
-   xxxxxbbbbbxx.x
+  xx...WWWWWbbx..x
+   xxxxxbbbbbxx.xx
    xxxxxxxxxxx.xx
   @.......1...xx
    xxxxxxxxxxxx
@@ -2373,6 +3370,7 @@ KMASK:  Ww = no_monster_gen
 CLEAR:  E
 COLOUR: -|*2 = brown
 FTILE:  =-|*2GT = floor_pebble_brown
+: decorative_floor(_G, 'F', "flower patch")
 MAP
 xxxxxxxxxxxxxxxxxxxxxxxxxxx
 ttccccccccccccccccccccccctt
@@ -2392,12 +3390,12 @@ Ettp...WwwwwWqqqttttttttE
 Ett.....Wwwwwqq..pttttttE
 Etttp....qWwwwWq..ppttttE
 Etttp......WwwWW...ptttttE
-Etttp.....WWwwWW....pptttE
+Etttp....FWWwwWW....pptttE
 Ettttp...WWWwwwWW....ptttE
 Ettttp...WWwwwwWW.....pttE
 Ettttt...WWwwwwWW....ptttE
- Ettttp...WWwwWWW...pptttE
-  Ettttp..WWWWWW...pttttE
+ Ettttp..FWWwwWWW...pptttE
+  Ettttp..WWWWWWF..pttttE
   Etttttp..WWWW....pttttE
    Ettttp.........ptttEE
     Etttt........tttttE
@@ -2406,29 +3404,39 @@ ENDMAP
 
 NAME:   nicolae_lair_yak_garden
 TAGS:   no_monster_gen no_item_gen no_trap_gen transparent
-DEPTH:  Lair:4-
-KMONS:  Y = yak
-KMONS:  D = death yak
-KMONS:  C = catoblepas
+DEPTH:  Lair:2-, Crypt
+SUBST:  P = P., f = ffF.
+: local d = you.depth()
+: if you.in_branch("Lair") then
+MONS:   yak, death yak, catoblepas
 KMONS:  P = plant
-KITEM:  f = stone
-SUBST:  P = P., f = f...
-NSUBST: D = 1:D / *:.
+KFEAT:  F = cache of fruit
+:   d = d - 1
+: else
+TAGS:   no_pool_fixup
+MONS:   death yak zombie, lich / revenant soulmonger
+MONS:   ancient lich / dread lich / alderking
+KMONS:  P = withered plant
+KFEAT:  t = petrified_tree
+:   decorative_floor(_G, 'F', "mourning vase")
+: end
+KITEM:  f = large rock q:1
+: nsubst("2 = " .. d .. ":2 / *:.")
 MAP
         .@@@.
       .........
     tt...P.P....tt
    tttttPPPPPPPtttt.
-  .ttDfPP.Y....tDtt...
+  .tt2fPP.1....t2tt...
  .PPttP..P.P.PP.ftP...
  .P....PPP...PPP.PP..@
-..PP..PPPwwwC.P..PPP.@
-......Y.wwwwww.Y.ttP.@
+..PP..PPPwww3.P..PPP.@
+......1.wwwwww.1.ttP.@
 .@.PP..Pwwwwww...fttt.
  @..P..PP.wwwPP.ttttt
   @.PP.PPP..PP..PPttt
   ...Ptt.P.PPPPPP....
-  ...ttfDttPP.......
+  ...ttf2ttPP.......
     .tttttt......@
      ..tt.......
         .....
@@ -2457,10 +3465,11 @@ NAME:    hangedman_lair_generics_rect
 TAGS:    no_monster_gen
 DEPTH:   Lair
 MONS:    plant / fungus w:6
-NSUBST:  ' = 2:c / 2:. / * = c+....
 SHUFFLE: yY / yY / Yy
-SUBST:   y = ., Yz = xxxx1., Z = xx`
+SUBST:   y = ., Yz = xxxx1., Z = xx`, W : WV
+NSUBST:  ' = 2:c / 2:. / * = c+...., V = 1:V / *:.
 CLEAR:   `
+: decorative_floor(_G, 'V', "broken floral vase")
 MAP
 .............xZZ
 .c'c'c'c'c'cxxxZZ
@@ -2511,7 +3520,7 @@ ORIENT:  southeast
 KMONS:   A = adder
 KMONS:   B = water moccasin
 KMONS:   C = black mamba
-ITEM:    snakebite no_pickup
+KITEM:   d = serpent talisman randart, snakebite no_pickup
 SUBST:   1 = A B:2 .:48, 2 = A B:5 .:60, 3 = A B C:2 .:88, 4 = A:2 B C:4 .:64
 SUBST:   5 = A:1 B C .:84, 6 = B:5 C .:60, 7 = B.
 MAP
@@ -2713,18 +3722,19 @@ NAME:   nicolae_lair_lil_pond
 TAGS:   transparent ruin decor extra
 DEPTH:  Lair
 NSUBST: D = 1:. / *:x
-SUBST:  - = .W
+SUBST:  - = .W, c : cx
+TILE:   c = wall_stone_puffball
 MAP
 ............
 ....xxxx....
-..DDDxxxxx..
+..DDDxxxxc..
 ..x------x..
 .xx-wwww-xx.
 .xx-wwww-xx.
 .xx-wwww-xx.
 .xx-wwww-xx.
 ..x------x..
-..xxxxxxxx..
+..cxxxxxxc..
 ....xxxx....
 ............
 ENDMAP
@@ -2800,9 +3810,9 @@ NAME:   nicolae_lair_time_for_slime
 TAGS:   transparent patrolling
 DEPTH:  Lair:4-
 KMONS:  1 = slime creature
-KMONS:  2 = azure jelly / quicksilver ooze
+KMONS:  2 = azure jelly / void ooze
 KMONS:  3 = jelly
-# Places 2-6 slime creatures, 1 azure jelly or quicksilver ooze, and
+# Places 2-6 slime creatures, 1 azure jelly or void ooze, and
 # 3-5 jellies.
 NSUBST: p = 1 / 3 / s, q = 1 / 3 / s, s = 4=1.. / 1=2 / 2=3. / .
 SUBST:  ' = `:40 %, ` = x..., - = x__
@@ -2831,14 +3841,14 @@ KMONS:   1 = human ; war axe ego:heavy good_item \
                    . leather armour good_item | ring mail good_item \
                        | scale mail good_item
 # Trying to get some good horror move trope representation
-KMONS:   2 = Rupert / reaper / vampire mage / phantasmal warrior \
-                 / tentacled starspawn \
-             , reaper / vampire mage / phantasmal warrior / tentacled starspawn
+KMONS:   2 = Rupert / reaper / vampire mage / phantasmal warrior / \
+             tentacled starspawn, \
+             reaper / vampire mage / phantasmal warrior / tentacled starspawn
 NSUBST:  a = a / c, p = p / c, q = q / c
 NSUBST:  r = r / c, s = s / c, u = u / c
 # These are distinct to preserve 'a' for the rune door.
 SHUFFLE: Er / ?u, Daqp / ?sur
-NSUBST:  D = 2 / | / S / `, E = 1 / *%% / S / `
+NSUBST:  D = 2 / | / S / `, E = 1 / *%% / S / `, ? = 1:B / *:?
 NSUBST:  T = 2=009 / * = .ttt
 NSUBST:  aq = 1:= / c, p = +
 SHUFFLE: rsu
@@ -2848,8 +3858,9 @@ KPROP:   ` = bloody
 MARKER:  F = lua:fog_machine { cloud_type = "thin mist", pow_min = 1, \
          pow_max = 3, delay = 10, start_clouds = 1, size_min = 2, \
          size_max = 3, spread_rate = 33 }
-KITEM: S = human skeleton
+KITEM:   S = human skeleton
 CLEAR:   _
+: decorative_floor(_G, 'B', "broken floral vase")
 MAP
    _____________________
    @ttttttttttttttttttttt_
@@ -2918,12 +3929,12 @@ ORIENT:  southeast
 MONS:    torpor snail, tyrant leech, lindwurm, hornet
 MONS:    patrolling fire dragon / patrolling ice dragon
 KMONS:   p = plant
-ITEM:    serpent talisman / serpent talisman randart w:2
+ITEM:    dragon-coil talisman
 SHUFFLE: ABC, GU, HhIi5 / JjKk6
 NSUBST:  1 = 1:1 / *:., 4 = 3:4 / *:.
 NSUBST:  A = 3:4 / 1:23 / * = ....4
 NSUBST:  B = 2:2 / 1:1 / * = ....4
-NSUBST:  C = 1:1 / 1:2 / 1:3 / *:., $ = 1:$$$$d / 1:R / *:$
+NSUBST:  C = 1:1 / 1:2 / 1:3 / *:., $ = 1 = d $:90 / 1:R / *:$
 SUBST:   Hi = -, h6 = $, I = p, JjK = x, k = c
 SUBST:   0 = 1, P = pp-, X = x., z = x'
 CLEAR:   '
@@ -2968,11 +3979,11 @@ KMONS:   P = plant
 # The one big reward and the several smaller stacks of items
 # are randomly split between the mostly-dog and mostly-bear sections.
 KITEM:   % = any, any
-KITEM:   *| = gold, gold, gold / maw talisman / maw talisman randart w:2, \
-              any good_item
+KITEM:   *| = gold, gold, gold, any good_item
+KITEM:   ? = lupine talisman
 NSUBST:  2 = 3:22334 / *:3, 8 = 1:8 / *:.
 SHUFFLE: %'*" / %'"|
-SUBST:   X = xx., z = xx`, ' = ., " = x, p = PP.
+SUBST:   X = xx., z = xx`, ' = ., " = x, p = PP., ? = ? .:90
 SUBST:   H = 3:3 4:1, 0 = 2
 CLEAR:   `
 : lair_small_ending(_G)
@@ -2997,7 +4008,7 @@ xxxxxxP6.%6xXxxxxxxxxxx.xxxxx..x
 xxxxxPxPxPxxxxxxxxxxxxxxxxxxx.Xx
 xxxxxx6x6xxxxx1'xxxxxx2.x2x...xx
 xxxxx...xxxxxx..xHx1x.........xz
-xx*x1.....'xx1.....x.........xxz
+xx*x1.?...'xx1.....x.........xxz
 xxx0.9......x.......8........xxx
 xxH.%.1.xx....xx.....xx.1.2xxxxx
 xxx2R0'xxxX..xxX2...xHxX1x1xxxxx
@@ -3017,7 +4028,8 @@ MONS:    rime drake w:12 / swamp drake / acid dragon / steam dragon
 MONS:    basilisk / komodo dragon, iguana
 MONS:    fire dragon / ice dragon, swamp dragon
 KMONS:   P = plant
-SUBST:   - = wwWW....%Ptt233, W = WWW., ? = 12**
+ITEM:    dragon-coil talisman
+SUBST:   - = wwWW....%Ptt233, W = WWW., ? = 12**, d = d .:90
 SHUFFLE: 45
 : lair_small_ending(_G)
 MAP
@@ -3035,7 +4047,7 @@ xttP.tWWttwWPtt.WWWwwWttxx
 xttt.ttWww-.ttttPWwwwWtttx
 xxttP.P-W-.tt%?$.WwwW.ttxx
 xxtt...PWWttt4%.WwwW.ttxxx
-xxttt.t.-Wtt***.WwwW.ttxxx
+xxttt.t.-Wtt***dWwwW.ttxxx
 xttttt..Wwttt5%..WW.tttxxx
 xxxxtt..-WWtt%?$.WwWW.ttxx
 xxxxxtt..-WWtttPWWwW..ttxx
@@ -3069,11 +4081,12 @@ KMONS:   B = death yak
 KMONS:   C = dream sheep
 KMONS:   D = hydra / torpor snail w:6 / dire elephant w:6
 KMONS:   P = plant w:12 / fungus w:8
+KITEM:   ? = rimehorn talisman randart
 KITEM:   ~ = any good_item
 SHUFFLE: 2d3e4f / 5g6h7i / 8j9k0l / AABBCC, $%*|
 NSUBST:  J = 2:. / 1 = x:9 .:1 / *:x, K = 2:. / 1 = x:9 .:1 / *:x
 NSUBST:  L = 2:. / 1 = x:9 .:1 / *:x
-SUBST:   X = xx..., P = PP., defghijkl = ., E = 44700C
+SUBST:   X = xx..., P = PP., defghijkl = ., E = 44700C, ? = ? .:90
 : lair_small_ending(_G)
 MAP
      xxx  xx  xxxx   xxxx  xx  xxx
@@ -3089,7 +4102,7 @@ xxx...xxxxxxxx...K369K...xxxxxxxx...xxx
 xx..c..1.ExxP..X.xehkx.X..Pxx.|...c..xx
 xx........xx.....K.D.K.....xx*~$....xxx
 @..x.....1xxX....xxxxx....Xxx.%.E..xxx
-  x.......XxxXX.........XXxxX.R9D3xxx
+  x.......XxxXX.........XXxxX?R9D3xxx
    .xx...PxxxxXXP.....PXXxxxxP..6xxx
    @xxxxxxxxxxxxxx.P.xxxxxxxxxxxxxxx
        xxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -3106,6 +4119,7 @@ MONS:    water moccasin / wyvern, hornet, cane toad
 MONS:    black mamba, redback, wolf spider, guardian serpent
 KMONS:   f = fungus
 KMONS:   P = plant
+ITEM:    spider talisman
 # Connect the endpoints of two random quarters, open one of them to the center,
 # rarely fray walls not between chambers, fringe the openings with plants.
 SHUFFLE: AB / CD / EF / GH, DFH
@@ -3116,7 +4130,7 @@ NSUBST:  1 = 6:1 / 4 = 11. / *:., 0 = 8:1 / 6 = 11. / 2:2 / *:.
 NSUBST:  9 = 1:256 / 2:3 / 2:4 / * = 33445
 NSUBST:  8 = 1:7 / 1:6 / 2 = 34 / * = 34 5:15 "
 NSUBST:  ' = 1:R / *:"
-NSUBST:  % = 10:% / 2 = %" / *:", x = 8:c / * = x
+NSUBST:  % = 10:% / 2 = %" / *:", $ = 1 = d $:90 / *:$, x = 8:c / * = x
 KMASK:   %*'" = no_monster_gen
 : lair_small_ending(_G)
 MAP
@@ -3176,7 +4190,7 @@ KMONS:   R = spectral anaconda
 # A necromancy-themed loot item behind the obsidian statue.
 ITEM:    rapier ego:pain w:5 / rapier ego:draining w:5 \
          / quickblade ego:pain w:5 / quickblade ego:draining w:5 \
-         / demon blade ego:draining / sword of zonguldruk w:1 \
+         / demon blade ego:draining / skull of zonguldruk w:1 \
          / great sword ego:draining / triple sword ego:draining \
          / demon whip ego:pain w:5 / demon whip ego:draining w:5 \
          / eveningstar ego:draining / sceptre of torment w:1 \
@@ -3188,11 +4202,12 @@ ITEM:    rapier ego:pain w:5 / rapier ego:draining w:5 \
          / book of necromancy / book of death / book of unlife \
          / randbook owner:Kikubaaqudgha disc:necromancy \
          / necronomicon w:1
+ITEM:    sanguine talisman
 KITEM:   & = |, earthy gem
 KFEAT:   R = deep_water
 KFEAT:   s = closed_clear_door
 # Thin out elephant/dire elephant bands of central necromancers a bit.
-SUBST:   2 = 2., 5 = 5.
+SUBST:   e = e .:90, 2 = 2., 5 = 5.
 # DE/FH/JK will always have a monster set, with one a guaranteed necromancer
 # plus band, next a 50% chance to be a # necromancer band, 50% chance to be
 # derived undead band, last guaranteed derived undead band. Necromancer band is
@@ -3225,7 +4240,7 @@ xxqtq....MM..qrcc                           ccccc
 xx...qrrqr..r..rcccccccccccccccccccccccccccccaaGttq.
 xq.qttcccc++c++ccccccccccccccccccccccccccccaaaKKJttqq.
 xt7ttccccG--c..OOGcc.WWccGqqqGccqqqccQQ.....qqGKKGttt.
-cnsncccccp-pcq.OON+..WwW+.55%&cG.2..+QQQqqc.cq.Kaaatq.
+cnsncccccp-pcq.OON+..WwW+.55%&cGe2..+QQQqqc.cq.Kaaatq.
 cndnccccc-c-ccccOGcqWwwR+.56**c|$22.cPqcccc---caaccc..
 cnnnccccc+cp--pccccqwwwwcG5qqGc*%22.cccc---pc+ccccccc.
 ccccGEEqq.cccc---pcWWWWqccnnnccG62qqcp--pcccc.qqHHGcc.
@@ -3253,21 +4268,19 @@ KITEM:   A = superb_item no_pickup, any good_item no_pickup \
              / no_pickup gold good_item w:15, % no_pickup \
              / nothing, % no_pickup / nothing
 KITEM:   _ = earthy gem
-KFEAT:   g = metal_statue
+KITEM:   ? = serpent talisman
 KFEAT:   A = enter_hell
 KFEAT:   _ = altar_makhleb
 KFEAT:   L = endless_lava
 NSUBST:  1 = 3 = 11122 / * = 1h, 4 = 5:4 / 1:4H / *:H
 SHUFFLE: gb
-SUBST:   T = ttt.
-KPROP:   ` = bloody
+SUBST:   T = ttt., ? = ? `:90
+KPROP:   `? = bloody
 KMASK:   '"`456H = no_item_gen
 FTILE:   "_A456H = floor_cage
 COLOUR:  "456H = red
-COLOUR:  g = warp
-TILE:    g = dimensional_conduit
 TILE:    b = bedevilled_crystal_gehenna
-: set_feature_name("metal_statue", "dimensional conduit")
+: vault_metal_statue_setup(_G, "g", "dimensional conduit")
 : set_feature_name("crystal_wall", "bedevilled crystal wall")
 MAP
   ...TTTT....  .............................
@@ -3284,7 +4297,7 @@ MAP
 ...Ttttttttttt..ttttt.......tttttttttttT....Ttttttxx
 ...tttttttttt.1ttttttt0ttFtttttttttcccccc++cccccccxx
 ..Tttttttttt..tttttttttttt+ccccccccc'''''''''''''clL
-..Ttttttttt.0t..ttttttttttc''''''''c'''G````G''''clL
+..Ttttttttt.0t..ttttttttttc''''''''c'''G``?`G''''clL
 .Tttttttttt..tt..tttttttttc''G'g'''+'''''''''''''clL
 ..Tttttttt..tttt.tttttttttc'''c'b''ccccccccccccccclL
 .Tttttttt..ttttt..ttttttttc''c'G'''c"""""""4lllllllL
@@ -3313,14 +4326,14 @@ KMONS:   6 = tyrant leech / skyshark w:5
 KMONS:   7 = electric eel
 KMONS:   8 = goliath frog
 KMONS:   p = plant
-ITEM:    any good_item
+ITEM:    any good_item, wellspring talisman
 KITEM:   R = earthy gem, %
 KFEAT:   123678p = W
 # Previously 11.6 bullfrogs, 16.6 cane toads,
 # and 7.1 vampire mosquitoes on average.
 NSUBST:  XW = 3:1 / 5:2 / 5:3 / 7 = 11WWW / 11 = 22WWW / 7 = 44WWW
 NSUBST:  W = 3 = 678 / *:W, 5 = 1:5 / *:4W
-NSUBST:  % = 1:d / 1:* / 1:R / * = %%*|
+NSUBST:  % = 1:d / 1:* / 1:R / 1 = e:20 %:180 *:45 |:45 / * = %%*|
 SHUFFLE: AB, CD
 SUBST:   AB = x, CD = w
 SUBST:   X = x:80 W:15 .:10 p:10
@@ -3368,10 +4381,11 @@ KITEM:  * = gold no_pickup, star_item no_pickup, star_item no_pickup
 KITEM:  | = gold no_pickup, superb_item no_pickup, star_item no_pickup
 KITEM:  $ = gold no_pickup, star_item no_pickup
 KITEM:  R = earthy gem
+KITEM:  ? = riddle talisman
 KFEAT:  C = cache of fruit
 SUBST:  T : T:20 .:1 t:1, T = tt..., E = t_, C = C..
 CLEAR:  _
-NSUBST: . = 5:1 / 3 = 10 / 3:3 / 3 = 3.. / *:.
+NSUBST: . = 5:1 / 3 = 10 / 3:3 / 3 = 3.. / *:., ? = 1 = ? .:90 / *:.
 NSUBST: 2 = 8:2 / 18 = 2. / *:., 4 = 6:4 / 6 = 4. / *:.
 NSUBST: 5 = 1:5 / *:6, 9 = 2:6 / 2 = 56 / *:4
 NSUBST: * = 1:| / *:*
@@ -3382,10 +4396,10 @@ tttttttttT*G*Ttttttt....ttttttttt.....ttTTtttttTT
 ttttttttt4.*.9TTT....Tt.5..TTT....ttT.2222TTtt..@
 tttttttTT.4R4....TTttttttT..4...TttttttTT222..ttT
 tttttT.....9..4TtttttttttT4...4ttttttttt22ttttttt
-ttttT..ttT4C4.Tttttttt..T....4.tttttttt..tttttttE
+ttttT..ttT4C4?Tttttttt..T....4.tttttttt..tttttttE
 tttt.ttttttttttttttttt......tt..TttT...TT.tttttt
 tttT2tttttttttttttttttT....ttttt.....ttttT.Tttt
-ttT22tttT.9TtttttttT....tTTttttttTTttttttt..ttE
+ttT22tttT?9TtttttttT....tTTttttttTTttttttt..ttE
 tt22ttt$.4..tttttT5.TTT..tttttttttttttttttt.tt
 tt22tttT9.4.ttttT.TttttT.22tttttttttttttttT.tt
 tt2tttttt..TtttT2TtttttttT22TttttttttttttT.ttt
@@ -3393,7 +4407,7 @@ tt2ttttttt.TtTT22tttttttttT222ttttttttttt.Tttt
 tt..tttttTT..222Ttttttttttttt22ttTTTTtt..TtttE
 ttT.tttt.....TTT222TttttttttttT...TT...TttttE
 ttt..tt...TTttttttt..TTttttttttT..4...Tttttt
-tttT....TtttttttttttT@   EEttttt49.49ttttttE
+tttT....TtttttttttttT@   EEttttt49?49ttttttE
 ttttT..tttttttttttttE      EEttttTC$TttttE
 ttttT..TtttttttttttE          ttttttttt
 ttttt...ttttttttttE            ttttttt
@@ -3414,14 +4428,13 @@ NAME:   evilmike_catoblepas_cave
 TAGS:   no_monster_gen no_rotate no_item_gen
 PLACE:  Lair:$
 ORIENT: northwest
-ITEM:   any good_item
+ITEM:   any good_item, medusa talisman randart / granite talisman
 KITEM:  R = earthy gem
 MONS:   yak, death yak, manticore
 KMONS:  4C = patrolling catoblepas
-# These are still living plants for all intents and purposes...
-KMONS:  P = plant perm_ench:petrified dbname:petrified_plant \
-            col:lightgrey tile:mons_withered_plant
-SUBST:  P = P.
+KMONS:  P = withered plant
+KMONS:  f = petrified flower
+SUBST:  P = P., f = f., e = e -:90
 NSUBST: 0 = 3:1 / 1:2 / * = 1112
 NSUBST: 9 = 1:C / 2:2 / 3:3 / * = 11222
 COLOUR: d|*$4c-R = lightgrey
@@ -3432,9 +4445,9 @@ xxxxxxcccxxxxxxxxxxxxxxxxx
 xxxxccc*cccxxxxxxxxxxxxxxxx
 xxxxcd|$$4cxxxxxxxxxxxxxxxx
 xxxxcc$R--ccxxxxxxxxxxxxxxxxxx
-xxxxxcc----ccxxx%PxxPxxxxxxxxxxx
-xxxxxxccc---cxxP......Pxxxxxxxxxxx
-xxxxxxxxcc-ccxP.9.0.x...xxxxxxxxxxx
+xxxxxcce---ccxxx%PxxPxxxxxxxxxxx
+xxxxxxccc---cxxf......Pxxxxxxxxxxx
+xxxxxxxxcc-ccxf.9.0.x...xxxxxxxxxxx
 xxxxxxxxxc-cxx.0.9.xxxP..xxxxPP.%xxxx
 xxxxxxxxxc-cxxP...xxxxx...xxxx0.9xxxx
 xxxxxxxxxx.cxxxx..xxxxxxx...xx.1.0xxx
@@ -3444,13 +4457,13 @@ xxxxxxx.....xxxxxxx..Pxxxx..xxxxxxxxxx
 xxxxxx90.x..xxxxxxP..xxxx..xxxxcccxxxx
 xxxxxx0xxxx..xxxxxx..Pxxx.xxxccc4ccxxx
 xxxxxxxxxx..xxxxxx0.......xxcc----ccxx
-xxxxxxxxxP..Pxxxx01xxxP...Pcc------cxx
+xxxxxxxxxf..Pxxxx01xxxP...Pcc------cxx
 xxxxxxxxx.....xx..xxxxxxP..c------ccx
 xxxxxxxxP.G.G.....xxxxxxx..---cc--cxx
 xxx%xxx..G.P9.G.xxxxxxxxxxx-ccc---cxx
-x%P9Pxx..9..G....xxxxxxxxxxxxc---ccxx
-xx0..1....P0.G..PPxxxxxxPPxxx...xxxx
-xxxP1...xxxP..PxxxxxxxxxxP9....xxxxx
+x%f9fxx..9..G....xxxxxxxxxxxxc---ccxx
+xx0..1....f0.G..fPxxxxxxPPxxx...xxxx
+xxxf1...xxxf..PxxxxxxxxxxP9....xxxxx
 xxxxxPPxxxxxxxxxxxxxxxxxxx......xxx
 xxxxxxxxxxxxxxxxxxxxxxxx......G...
 xxxxxxxxxxxxxxxxxxxxxx....G.......
@@ -3481,10 +4494,11 @@ KMONS:   P = plant / fungus w:2 / bush w:1
 ITEM:    human skeleton / orc skeleton / elf skeleton / dwarf skeleton /\
          ogre skeleton w:1 / naga skeleton w:1 / minotaur skeleton w:1 /\
          merfolk skeleton w:1
+ITEM:    hive talisman
 KITEM:   R = earthy gem
 SHUFFLE: 567
 SUBST:   C = cx.., P = P .:9 t:1
-NSUBST:  % = 2:| / 3:* / *:%
+NSUBST:  % = 2:| / 3:* / 1 = e %:90 /*:%
 NSUBST:  5 = 3:5 / 3 = 5. / *:., 6 = 3:6 / 4 = 6. / *:., 7 = 2:7 / 2 = 7. / *:.
 MAP
                 xxxxxxxxxxxxxx
@@ -3525,15 +4539,16 @@ KITEM:   % = any
 KITEM:   * = star_item
 KITEM:   | = superb_item
 : kitem("d = " .. dgn.loot_potions)
-KITEM:   e = throwing net q:3 / rapier good_item / captain's cutlass w:2 \
-         / trident randart / trident of the octopus king w:2 \
-         / demon trident w:5 / phial of floods / ring of the octopus king w:2, \
-         earthy gem
+KITEM:   e = throwing net q:3 / rapier good_item / captain's cutlass w:2 / \
+             trident randart w:8 / trident of the octopus king w:2 / \
+             partisan good_item w:2 / demon trident w:5 / phial of floods / \
+             ring of the octopus king w:2, / \
+             fortress talisman / nothing w:90, earthy gem
 KMONS:   p = plant
 KMONS:   1 = hornet / wyvern / blink frog / cane toad / steam dragon
 KMONS:   2 = elephant / komodo dragon / polar bear / rime drake
-KMONS:   3 = snapping turtle / sea snake / manticore / wind drake / harpy \
-         / skyshark
+KMONS:   3 = snapping turtle / sea snake / manticore / wind drake / harpy / \
+             skyshark
 KMONS:   4 = dire elephant / hydra / torpor snail
 KMONS:   5 = patrolling merfolk avatar
 KFEAT:   p12345de%*| = W
@@ -3594,6 +4609,9 @@ ENDMAP
 ###############################################################################
 # A mini-volcano! No fire clouds and twice as many enemies, though.
 #
+# XXX: Other ends and earlier vaults already allow encountering a fire dragon
+#      without a runed door, but this would be a bit meaner than those others
+#      due to the glass and an inability to use regular doors. What to do...?
 NAME:    cheibrodos_lair_end_hotspot
 TAGS:    no_item_gen no_monster_gen
 PLACE:   Lair:$
@@ -3605,6 +4623,7 @@ MONS:    lindwurm / fire crab w:3, fire dragon
 KMONS:   8 = hell hog
 KMONS:   Y = lava snake
 KFEAT:   Y = lava
+KITEM:   ? = scarab talisman randart
 KITEM:   R = earthy gem, gold
 # Generate one of two paths leading to central chamber
 SHUFFLE: ABCD= / HIJKL
@@ -3617,7 +4636,7 @@ SHUFFLE: ';`, -~ / -~ / ~-
 NSUBST:  ' = 3:3 / 2 = 3. / 1:5 / 2 = 15. / 1:2. / *:.
 NSUBST:  ; = 3:5 / 3 = 15. / 1:2. / *:., ` = 3 = 5 / 3 = 15. / 1:2. / .
 NSUBST:  - = 1:7 / *:", ~ = 2:8 / *:"
-NSUBST:  D = 1:R / 1:|* / 2 = *% / 3 = $% / 2:$ / *:"
+NSUBST:  D = 1:R / 1 = ? $:90 / 1:|* / 2 = *% / 3 = $% / *:$
 NSUBST:  G = 2:4 / 1:4. / *:G, l = 5:Y / l
 KMASK:   "$%*|7 = no_trap_gen
 MAP
@@ -3640,7 +4659,7 @@ MAP
   xxxxxx;.;.;.xllPlJJllxllIIllxxllxxxx
  xxxx....;.;.;llPccLLccllllIIxxxxxxxxx
  Ax.....;.;.xllPccDDDDccllxx'xxGxGxxx
- x.....;.;xxlllOcDD--DDcllx'.'...xxxx
+ x.....;.;xxlllOcDDDDDDcllx'.'...xxxx
 xAxxxx..;.;.;.lln"----"nlx`.`...xGxxx
  xxxxxx..;.;.;xln"----"nlN.`.`.`xxxx
    xxxxx;.;.;.xlcKK--KKcNl`.`.`.xxxx
@@ -3673,6 +4692,7 @@ KMONS:   7 = spriggan ; rapier ego:distortion
 KITEM:   O = spriggan skeleton / wolf skeleton w:3 /\
              polar bear skeleton w:2 / black bear skeleton w:2
 KITEM:   R = earthy gem, %
+KITEM:   ? = maw talisman randart
 KFEAT:   u = demonic_tree
 KFEAT:   N = enter_abyss
 KFEAT:   _ = altar_lugonu
@@ -3682,7 +4702,7 @@ FTILE:   '%MN_u = floor_nerves_magenta
 NSUBST:  %d = 1:R / 2:| / 3:* / *:%
 NSUBST:  1 = 5:1 / 1.., 2 = 3:2 / 2:. / * = 2..
 NSUBST:  4 = 4 / *:3, ' = 2:6 / 2 = 56 / 3:O / 5 = 5543O. / *:.
-SUBST:   7M = 7O
+SUBST:   7M = 7O, ? = ? ':90
 # 33% chance each for additional openings at the south or north east.
 SHUFFLE: yzD / JKL / JKL
 SUBST:   y = @, zD= ., JK = t, L = p
@@ -3690,6 +4710,8 @@ SHUFFLE: EFH / JKL / JKL
 SUBST:   E = @, FH= ., JK = t, L = p
 SUBST:   a = tt..., q = pp..., p = tttu, s = rr..., r = tu
 {{
+  -- Dense forest configurations make completely random colours a bit ugly,
+  -- so instead try to use the paired tiles demonic trees already have.
   local cols = {"dngn_demonic_tree_1 / dngn_demonic_tree_16",
                 "dngn_demonic_tree_2 / dngn_demonic_tree_3",
                 "dngn_demonic_tree_4 / dngn_demonic_tree_5",
@@ -3719,7 +4741,7 @@ ttt..ttttttttttt.2.pp.4.1pppppp2....qqrss..rrt
 tta......tttttttt..q..1pppuuuupppp4ppprrrr12rtt
 tt..t.....ttttttt...2qppuuuMNuuuupppttttrrs4rt
 tt11ttt22...tttt..2pppppu%%''%%uuutttttrr..rrt
-tt1attttt...ttt...ppppdpuu'''_''%utttttr..rrtt
+tt1attttt...ttt...ppppdpuu%''_''%utttttr..rrtt
 ta1ttttttt2.tt...pppd54ppu%''''uurrrrrrrs..rtt
 tt11ttttt....111qpppa.2ppuuuu''urr"".rr.41rrtt
 tt..ttttttt.111....tt..qppttr'''''"s....ssrtt

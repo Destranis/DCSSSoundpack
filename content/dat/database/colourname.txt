@@ -506,6 +506,8 @@ olive ochre
 
 olivine
 
+olo
+
 orange ochre
 
 orchid
@@ -795,6 +797,8 @@ leopard spots
 
 ogee
 
+ombre
+
 paisley
 
 pinstripes
@@ -848,6 +852,8 @@ gleaming
 glossy
 
 luminous
+
+lustrous
 
 mottled
 
