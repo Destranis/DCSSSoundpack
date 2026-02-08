@@ -4953,7 +4953,7 @@ sound += walls fall away:se\labycrash.wav
 
 
 monster attacks
-sound += comes into view:se\visible.wav
+sound +=You encounter:se\visible.wav
 
 sound += club!!:se\mace3.wav
 

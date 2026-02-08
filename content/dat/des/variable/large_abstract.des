@@ -89,26 +89,29 @@ ENDMAP
 
 #############################################################################
 NAME:    vault_1
-TAGS:    depths_entry uniq_depths_entry chance_depths_entry
+TAGS:    depths_entry chance_depths_entry
 ORIENT:  north
 DEPTH:   Depths, !Depths:$
 PLACE:   D:$
 WEIGHT:  2 (D:$), 10
 : if (you.where() == dgn.level_name(dgn.br_entrance("Depths"))) then
+TAGS:    uniq_depths_entry
 MONS:    shapeshifter, ugly thing, glowing shapeshifter
 MONS:    obsidian statue, 0 band / 9 band
 KITEM:   R = smoky gem
 KITEM:   ? = stone no_pickup / gold q:1 no_pickup
 KFEAT:   O = enter_depths
 KFEAT:   S = stone_arch
+KFEAT:   z = c
 NSUBST:  O = 1:O / *:S, R = 1:R / *:?
 SUBST:   * = *%, | = |*, I = G
 TILE:    G = depths_column
+TILE:    z = stone_wall_depths_entry
 FTILE:   'ROS? = floor_depthstone
 : else
 MONS:    very ugly thing, glowing shapeshifter, glass eye band
 MONS:    orange crystal statue, 9 band / 8 band
-SUBST:   'ROG = ., I = x
+SUBST:   'ROG = ., Iz = x
 : end
 KFEAT:   T = fountain_eyes
 SHUFFLE: abcd, |ABCDE, n* / m$, or, pqs
@@ -117,7 +120,7 @@ SUBST:   b = + x:30, opq = +, cdrs = x, * = * |:1
 SUBST:   ABC = ., D = *, E = %., m = 0, n = 9, 4 = 4., x : x c:2
 MAP
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzxxxx
 xxxx....xE.......x..G.'''.x.................................xxxx
 x%E+3...x........+....'O'.x......x....x1...x2...x2...I3...I..Dxx
 x%Ex....x........x..G.'''Ex..................................DDx
@@ -144,7 +147,7 @@ xxx...1...x..'''..x...3...x...x....3....r....2...s......1.5....x
 xxx.......x..'O'..x.......x...x.........x...'''..x.............x
 xxxE.....ExE.'''.ExE.....Ex...x.........x...'O'..x.............x
 xxxAAAAAAAxBBBBBBBxCCCCCCCx...xE.......ExE..'''.Ex............Ex
-xxxxxxxxxxxxxxxxxxxxxxxxxxx...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxzzzzzzzzzzzzzzzzzzzzzzzx...xzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzx
 xxxxxxxxxxxxxxxxxxxxxxxxxxx...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ENDMAP
@@ -1045,28 +1048,34 @@ NAME:   minmay_tri_stars
 ORIENT: north
 DEPTH:  D:12-, !D:$, Depths, !Depths:$
 SUBST:  x : xvb
-MONS:   occultist w:150 / arcanist w:150 / deep elf pyromancer w:60 / deep elf zephyrmancer w:60 / \
-        orc wizard / orc sorcerer w:35 / tengu conjurer w:35 / nothing w:500
+MONS:   occultist w:150 / arcanist w:150 / deep elf pyromancer w:60 / \
+        deep elf zephyrmancer w:60 / orc wizard / orc sorcerer w:35 / \
+        tengu conjurer w:35
+MONS:   occultist / tengu conjurer w:20 / kobold fleshcrafter / \
+        rakshasa / spriggan air mage w:5 / chonchon w:1
 MONS:   walking crystal tome / walking frostbound tome / lich / ancient lich w:5
 ITEM:   any book / any jewellery / any wand / any misc w:3 / \
         any magical staff w:3 / any randart weapon w:3 / \
         any randart armour w:3
 : if you.in_branch("Depths") then
-NSUBST: 2 = 2:2 / 2 = 21 / *:1
+NSUBST: 3 = 3:2 / 2 = 322 / *:22.
+SUBST:  1 = 2.
 : else
-SUBST:  2 = 1
+SUBST:  1 = 1., 3 = 11.
 : end
+FTILE:  ' = floor_rough_blue
+FTILE:  .123d = floor_mystic_chasm
 MAP
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xx.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.xx
 x...................................................................x
-xx........x....xx......xx2..................xx.........xx..........xx
+xx........x....xx......xx3..................xx.........xx..........xx
 x........xx....xxx......xxxxxx.............xx..........xxx..........x
-xx......2xx....xxxx......xxxx............2xxx...........xxx2..xxxx.xx
-x.....xxxxx.....xxxx......x2...........xx.xx.........xx..xx.xxxxxx..x
-xx...xxxxxx2....xxxx.....xx..........xxxxdm2........xxx..2mdmxxx...xx
-x.........xx.....xxxx1...xx............2mxxx........xxx...xxx2......x
+xx......3xx....xxxx......xxxx............3xxx...........xxx3..xxxx.xx
+x.....xxxxx.....xxxx......x3...........xx.xx.........xx..xx.xxxxxx..x
+xx...xxxxxx3....xxxx.....xx..........xxxxdm3........xxx..3mdmxxx...xx
+x.........xx.....xxxx1...xx............3mxxx........xxx...xxx3......x
 xx.........x.....xxxx.x1..................xxx......xxxx...xx.......xx
 x..xx............1xxx.xxxxxxxx.............xx......xxx...xxx........x
 xx..xxx......xxx..mmdxxxxxxxxxx........xx...x.....xxxx...xxx.......xx
@@ -1085,7 +1094,7 @@ xx....................1xxx.........xxx.................xxx.........xx
 x........................x.........xxx..................xx..........x
 xx..................................xx.............................xx
 x...................................................................x
-xx.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.xx
+xx'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'xx
 ENDMAP
 
 NAME:   minmay_three_patterns
@@ -1636,7 +1645,7 @@ NAME:   kennysheep_large_spiral
 TAGS:   no_trap_gen no_item_gen
 ORIENT: northwest
 DEPTH:  D:14-, Depths, !Depths:$
-: ks_random_setup(_G, true)
+: ks_random_setup(_G, false, true)
 SUBST:  X = x
 MAP
 XXXXXXXXXXXXXXXXXXXXXXXXXX
